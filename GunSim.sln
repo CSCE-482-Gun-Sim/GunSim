@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{68ADCF04-4CBF-60EF-F06C-82EDB52C3710}") = "GunSim", "Assembly-CSharp.csproj", "{AF432A6E-C11F-A9A9-8D89-486B3BB3D05D}"
 EndProject
+Project("{68ADCF04-4CBF-60EF-F06C-82EDB52C3710}") = "GunSim", "Assembly-CSharp-Editor.csproj", "{D316D53F-621B-FC6A-3724-B429EF6CDDCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{AF432A6E-C11F-A9A9-8D89-486B3BB3D05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF432A6E-C11F-A9A9-8D89-486B3BB3D05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF432A6E-C11F-A9A9-8D89-486B3BB3D05D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D316D53F-621B-FC6A-3724-B429EF6CDDCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D316D53F-621B-FC6A-3724-B429EF6CDDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D316D53F-621B-FC6A-3724-B429EF6CDDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D316D53F-621B-FC6A-3724-B429EF6CDDCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-					GlobalSection(MonoDevelopProperties) = preSolution
+											GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

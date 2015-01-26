@@ -46,7 +46,52 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\OVR\Scripts\OVRCameraRig.cs" />
+     <Compile Include="Assets\OVR\Scripts\OVRCommon.cs" />
+     <Compile Include="Assets\OVR\Scripts\OVRDisplay.cs" />
+     <Compile Include="Assets\OVR\Scripts\OVRManager.cs" />
+     <Compile Include="Assets\OVR\Scripts\OVRPluginEvent.cs" />
+     <Compile Include="Assets\OVR\Scripts\OVRTracker.cs" />
+     <Compile Include="Assets\OVR\Scripts\OvrCapi.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRCrosshair.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRGUI.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRGamepadController.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRGridCube.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRMainMenu.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRPlayerController.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRUGUI.cs" />
+     <Compile Include="Assets\OVR\Scripts\Util\OVRVisionGuide.cs" />
      <Compile Include="Assets\Test.cs" />
+     <Compile Include="Assets\Tuscany\Scripts\BirdsBehavior.cs" />
+     <Compile Include="Assets\Tuscany\Scripts\BoatBehavior.cs" />
+     <Compile Include="Assets\Tuscany\Scripts\Butterfly.cs" />
+     <Compile Include="Assets\Tuscany\Scripts\LightFlicker.cs" />
+     <Compile Include="Assets\Tuscany\Scripts\RandomAnimationStart.cs" />
+     <Compile Include="Assets\Tuscany\Scripts\ScrollUVs.cs" />
+     <Compile Include="Assets\Tuscany\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
+     <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\Tuscany\Models\Materials\TransparentTerrain.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 3.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 1.shader" />
+     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\Tuscany\Particles\Shaders\Particle Alpha Blend_IgnoreFog.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 5.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 6.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\DoubleSided.shader" />
+     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
+     <None Include="Assets\Tuscany\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\DoubleSided ButterFly.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\AlphaTest-DiffuseDoublesided.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 4.shader" />
+     <None Include="Assets\Tuscany\Particles\Shaders\AddSmooth_Layer.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 8.shader" />
+     <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\Plugins\x86\donotdelete.txt" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 2.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 7.shader" />
+     <None Include="Assets\Tuscany\Particles\Shaders\Add_Layer.shader" />
+     <None Include="Assets\Tuscany\Models\Materials\AlphaTest-DiffuseBack.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
