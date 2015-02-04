@@ -63,11 +63,19 @@
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
      <Compile Include="Assets\Test.cs" />
+<<<<<<< HEAD
      <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
      <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />
      <None Include="Assets\Oculus Related\Shaders\TextShader3D.shader" />
      <None Include="Assets\Oculus Related\Shaders\OVRGUIShader.shader" />
      <None Include="Assets\Oculus Related\Plugins\x86\donotdelete.txt" />
+=======
+     <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
+     <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\Plugins\x86\donotdelete.txt" />
+>>>>>>> 27b37beef77ea741ceb024247908523781fb8a7c
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/CS/Documents/GitHub/GunSim/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
