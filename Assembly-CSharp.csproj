@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{647F542E-1482-EAA6-F51F-36FC6D2C0166}</ProjectGuid>
+	<ProjectGuid>{AF432A6E-C11F-A9A9-8D89-486B3BB3D05D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,58 +46,37 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\OVR\Scripts\OVRCameraRig.cs" />
-     <Compile Include="Assets\OVR\Scripts\OVRCommon.cs" />
-     <Compile Include="Assets\OVR\Scripts\OVRDisplay.cs" />
-     <Compile Include="Assets\OVR\Scripts\OVRManager.cs" />
-     <Compile Include="Assets\OVR\Scripts\OVRPluginEvent.cs" />
-     <Compile Include="Assets\OVR\Scripts\OVRTracker.cs" />
-     <Compile Include="Assets\OVR\Scripts\OvrCapi.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRCrosshair.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRGUI.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRGamepadController.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRGridCube.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRMainMenu.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRPlayerController.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRUGUI.cs" />
-     <Compile Include="Assets\OVR\Scripts\Util\OVRVisionGuide.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OVRCameraRig.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OVRCommon.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OVRDisplay.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OVRManager.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OVRPluginEvent.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OVRTracker.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\OvrCapi.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRCrosshair.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGUI.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGamepadController.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGridCube.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRMainMenu.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRPlayerController.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRScreenFade.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
+     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
      <Compile Include="Assets\Test.cs" />
-     <Compile Include="Assets\Tuscany\Scripts\BirdsBehavior.cs" />
-     <Compile Include="Assets\Tuscany\Scripts\BoatBehavior.cs" />
-     <Compile Include="Assets\Tuscany\Scripts\Butterfly.cs" />
-     <Compile Include="Assets\Tuscany\Scripts\LightFlicker.cs" />
-     <Compile Include="Assets\Tuscany\Scripts\RandomAnimationStart.cs" />
-     <Compile Include="Assets\Tuscany\Scripts\ScrollUVs.cs" />
-     <Compile Include="Assets\Tuscany\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
-     <None Include="Assets\Plugins\donotdelete.txt" />
-     <None Include="Assets\Tuscany\Models\Materials\TransparentTerrain.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 3.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 1.shader" />
-     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
-     <None Include="Assets\Tuscany\Particles\Shaders\Particle Alpha Blend_IgnoreFog.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 5.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 6.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\DoubleSided.shader" />
-     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
-     <None Include="Assets\Tuscany\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\DoubleSided ButterFly.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\AlphaTest-DiffuseDoublesided.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 4.shader" />
-     <None Include="Assets\Tuscany\Particles\Shaders\AddSmooth_Layer.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 8.shader" />
-     <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
-     <None Include="Assets\Plugins\x86\donotdelete.txt" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 2.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 7.shader" />
-     <None Include="Assets\Tuscany\Particles\Shaders\Add_Layer.shader" />
-     <None Include="Assets\Tuscany\Models\Materials\AlphaTest-DiffuseBack.shader" />
+     <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
+     <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\Oculus Related\Shaders\TextShader3D.shader" />
+     <None Include="Assets\Oculus Related\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\Oculus Related\Plugins\x86\donotdelete.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{43D16155-A758-5C09-D154-E5C820BDEB0F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{D149F118-1C42-A579-7BAD-7E11EB487EA7}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{9CA3E500-EFFF-AE8D-BFD2-BF6B43E019E6}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+      <Project>{3A701147-E6B6-E084-DF80-2DC7FF7A9914}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
