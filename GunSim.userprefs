@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Oculus Related\Scripts\OVRCameraRig.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Pickup_Object.cs">
     <Files>
-      <File FileName="Assets\Oculus Related\Scripts\OVRCameraRig.cs" Line="108" Column="1" />
+      <File FileName="Assets\Pickup_Object.cs" Line="21" Column="4" />
+      <File FileName="Assets\CrossHair.cs" Line="7" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

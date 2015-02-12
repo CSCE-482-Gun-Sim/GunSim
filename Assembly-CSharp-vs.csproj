@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CrossHair.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\OVRCameraRig.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\OVRCommon.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\OVRDisplay.cs" />
@@ -62,6 +63,8 @@
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRScreenFade.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
+     <Compile Include="Assets\Pickup_Object.cs" />
+     <Compile Include="Assets\Pickupable.cs" />
      <Compile Include="Assets\Test.cs" />
      <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
      <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />
