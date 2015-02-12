@@ -5,13 +5,12 @@ public class Pickup_Object : MonoBehaviour
 {
     GameObject mainCamera;
     bool carrying;
-    GameObject carriedObject;
+    public GameObject carriedObject;
     public float distance;
     // Use this for initialization
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
-
     }
 
     // Update is called once per frame
