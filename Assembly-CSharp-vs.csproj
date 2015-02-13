@@ -62,10 +62,11 @@
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRScreenFade.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
+     <Compile Include="Assets\Scripts\AbstractGun.cs" />
      <Compile Include="Assets\Scripts\CrossHair.cs" />
-     <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Pickup_Object.cs" />
      <Compile Include="Assets\Scripts\Pickupable.cs" />
+     <Compile Include="Assets\Scripts\Pistol.cs" />
      <Compile Include="Assets\Test.cs" />
      <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
      <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />

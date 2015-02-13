@@ -20,9 +20,14 @@ public class Pickup_Object : MonoBehaviour
     {
         if (carrying)
         {
-
-            carriedObject.transform.position = Vector3.Lerp(carriedObject.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * 12f);
-            carriedObject.transform.rotation = mainCamera.transform.rotation;
+			//if this carried object is a gun
+			if(carriedObject.GetComponent("AbstractGun") as AbstractGun != null){
+				AbstractGun thisGun = carriedObject.GetComponent("AbstractGun") as AbstractGun;
+				Vector3 gunHeightCorrection = new Vector3(0.0f, -thisGun.gunHeight, 0.0f);
+				carriedObject.transform.position = Vector3.Lerp(carriedObject.transform.position, mainCamera.transform.position + gunHeightCorrection + mainCamera.transform.forward * distance, Time.deltaTime * 12f);
+				carriedObject.transform.rotation = mainCamera.transform.rotation;
+			}
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
                 carrying = false;
