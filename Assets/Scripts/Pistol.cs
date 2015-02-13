@@ -6,6 +6,7 @@ public class Pistol : AbstractGun {
 	// Use this for initialization
 	void Start () {
 		defineWeaponProperties();
+		base.Start ();
 	}
 
 	//required of any class inheriting from AbstractGun
@@ -16,6 +17,6 @@ public class Pistol : AbstractGun {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		base.Update();
 	}
 }

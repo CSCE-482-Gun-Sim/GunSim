@@ -9,7 +9,7 @@ public abstract class AbstractGun : MonoBehaviour {
 	abstract protected void defineWeaponProperties();	//required by inherited classes
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
 		player = GameObject.FindWithTag("Player");
 
 		Debug.Log(player.transform.position);
@@ -18,8 +18,9 @@ public abstract class AbstractGun : MonoBehaviour {
 	}
 
 	//Need to make barrel position relative to the gun position, add them relative to gun axis not the world axis
-	void Update () {
+	protected void Update () {
 
+		Debug.Log ("gun is " + playerFunctions.carriedObject);
 		if (playerFunctions.carriedObject != null) {
 		
 			if (Input.GetMouseButtonDown(0))
