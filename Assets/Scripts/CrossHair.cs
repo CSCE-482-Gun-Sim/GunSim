@@ -7,7 +7,7 @@ using System.Collections;
 public class CrossHair : MonoBehaviour
 {
 	#region Fields
-	public bool drawCrosshair = true;
+	public static bool drawCrosshair = true;
 	public Color crosshairColor = Color.white;
 	public float width = 1;
 	public float height = 3;

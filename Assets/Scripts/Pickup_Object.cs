@@ -33,6 +33,7 @@ public class Pickup_Object : MonoBehaviour
                 carrying = false;
                 carriedObject.rigidbody.isKinematic = false;
                 carriedObject = null;
+				CrossHair.drawCrosshair = true;
             }
         }
         else
@@ -58,6 +59,7 @@ public class Pickup_Object : MonoBehaviour
                     carrying = true;
                     carriedObject = p.gameObject;
                     carriedObject.rigidbody.isKinematic = true;
+					CrossHair.drawCrosshair = false;
                 }
 
             }

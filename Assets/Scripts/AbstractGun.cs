@@ -37,7 +37,7 @@ public abstract class AbstractGun : MonoBehaviour {
 					Debug.DrawRay(playerFunctions.carriedObject.transform.position + barrel_offset, 
 					              playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward) * 10, Color.green, 100);
 
-					if(hit.collider.gameObject.name == "Target")
+					if(hit.collider.gameObject.tag == "Target")
 					{	
 						Debug.Log("HIT");
 						hit.collider.gameObject.renderer.material.color = new Color(Random.Range(0.0f, 1.0f), 
