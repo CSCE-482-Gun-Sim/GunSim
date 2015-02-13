@@ -7,6 +7,7 @@ public abstract class AbstractGun : MonoBehaviour {
 	Pickup_Object playerFunctions;
 	public float gunHeight;							//used for making top of gun at center of screen for shooting
 	abstract protected void defineWeaponProperties();	//required by inherited classes
+	public Transform bulletHole;
 
 	// Use this for initialization
 	protected void Start () {
@@ -20,12 +21,9 @@ public abstract class AbstractGun : MonoBehaviour {
 	//Need to make barrel position relative to the gun position, add them relative to gun axis not the world axis
 	protected void Update () {
 
-		Debug.Log ("gun is " + playerFunctions.carriedObject);
 		if (playerFunctions.carriedObject != null) {
-		
 			if (Input.GetMouseButtonDown(0))
 			{
-
 				Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 
 				Ray gunDirection = new Ray(playerFunctions.carriedObject.transform.position + barrel_offset, 
@@ -40,8 +38,10 @@ public abstract class AbstractGun : MonoBehaviour {
 					if(hit.collider.gameObject.tag == "Target")
 					{	
 						Debug.Log("HIT");
-						hit.collider.gameObject.renderer.material.color = new Color(Random.Range(0.0f, 1.0f), 
-						                                                            Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+						Quaternion bulletHoleRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+						Instantiate(bulletHole, hit.point, bulletHoleRotation);
+//						hit.collider.gameObject.renderer.material.color = new Color(Random.Range(0.0f, 1.0f), 
+//						                                                            Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
 					}
 				}
 			}
