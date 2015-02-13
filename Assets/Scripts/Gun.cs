@@ -5,6 +5,7 @@ public class Gun : MonoBehaviour {
 	public Vector3 barrel_offset;
 	GameObject player;
 	Pickup_Object playerFunctions;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindWithTag("Player");
