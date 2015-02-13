@@ -40,8 +40,6 @@ public abstract class AbstractGun : MonoBehaviour {
 						Debug.Log("HIT");
 						Quaternion bulletHoleRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 						Instantiate(bulletHole, hit.point, bulletHoleRotation);
-//						hit.collider.gameObject.renderer.material.color = new Color(Random.Range(0.0f, 1.0f), 
-//						                                                            Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
 					}
 				}
 			}
