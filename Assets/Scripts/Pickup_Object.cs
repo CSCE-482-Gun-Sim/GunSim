@@ -11,6 +11,8 @@ public class Pickup_Object : MonoBehaviour
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
+
+		carrying = false;
     }
 
     // Update is called once per frame

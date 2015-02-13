@@ -280,7 +280,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: jumping.enabled
@@ -308,11 +308,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_TagString
-      value: MainCamera
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
@@ -858,6 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41022def93994b0498ee85abdec51b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barrel_offset: {x: 0, y: .052099999, z: .170200005}
 --- !u!1 &1915366175
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,8 +931,8 @@ GameObject:
   - 114: {fileID: 2099032187}
   - 114: {fileID: 2099032192}
   m_Layer: 0
-  m_Name: First Person Controller
-  m_TagString: MainCamera
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1059,6 +1064,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5963b9226ef25334782ed18dae4d92ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carrying: 0
+  carriedObject: {fileID: 0}
   distance: 1
 --- !u!1001 &2147461569
 Prefab:
