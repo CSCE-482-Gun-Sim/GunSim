@@ -21,7 +21,7 @@ public abstract class AbstractGun : MonoBehaviour {
 	//Need to make barrel position relative to the gun position, add them relative to gun axis not the world axis
 	protected void Update () {
 
-		if (playerFunctions.carriedObject != null) {
+		/*if (playerFunctions.carriedObject != null) {
 			if (Input.GetMouseButtonDown(0))
 			{
 				Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
@@ -43,6 +43,6 @@ public abstract class AbstractGun : MonoBehaviour {
 					}
 				}
 			}
-		}
+		}*/
 	}
 }
