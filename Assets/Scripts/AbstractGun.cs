@@ -22,13 +22,13 @@ public abstract class AbstractGun : Pickupable {
 		{
 				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 				
-				Ray gunDirection = new Ray(this.gameObject.transform.position + barrel_offset, 
+				Ray gunDirection = new Ray(this.gameObject.transform.position + this.gameObject.transform.TransformDirection(barrel_offset), 
 				                           this.gameObject.transform.TransformDirection(Vector3.forward)*50);
 				
 				RaycastHit hit;
 				if(Physics.Raycast (gunDirection, out hit))
 				{
-					Debug.DrawRay(this.gameObject.transform.position + barrel_offset, 
+				Debug.DrawRay(this.gameObject.transform.position + this.gameObject.transform.TransformDirection (barrel_offset), 
 					              this.gameObject.transform.TransformDirection(Vector3.forward) * 10, Color.green, 100);
 					
 					if(hit.collider.gameObject.tag == "Target")
