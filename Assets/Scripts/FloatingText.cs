@@ -2,34 +2,63 @@
 using System.Collections;
 
 public class FloatingText : MonoBehaviour {
-	public string text;
-	bool textOn = false;
-
+	private string text;
+	enum AttachPoint{
+		None,
+		Camera,
+		Gun
+	};
+	AttachPoint attached;
 
 	// Use this for initialization
 	void Start () {
 		text = this.GetComponent<TextMesh> ().text;
+		attached = AttachPoint.Camera;	
 	}
 
-	void initialize(string t)
-	{
-		text = t;
-		this.GetComponent<TextMesh> ().text = text;
-	}
+//	void initialize(string t)
+//	{
+//		text = t;
+//		this.GetComponent<TextMesh> ().text = text;
+//	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		//turns displayed text on and off
+		//when C is pressed, cycle through text locations
 		if (Input.GetKeyDown (KeyCode.C)) {
-			textOn = !textOn;
-			if(textOn) {
-				this.GetComponent<TextMesh> ().text = text;
-			}
-			else {
-				this.GetComponent<TextMesh> ().text = "";
+			if (attached == AttachPoint.Camera){
+				attached = AttachPoint.Gun;
+			} else if (attached == AttachPoint.Gun){
+				attached = AttachPoint.None;
+			} else {
+				attached = AttachPoint.Camera;
 			}
 		}
 
+		if(attached == AttachPoint.Camera) {
+			this.GetComponent<TextMesh> ().text = "Press C to snap to Gun";
+			this.gameObject.renderer.enabled = true;
+		} else if(attached == AttachPoint.Gun) {
+			this.GetComponent<TextMesh> ().text = "Press C to dismiss";
+			this.gameObject.renderer.enabled = true;
+		} else {
+			this.GetComponent<TextMesh> ().text = "";
+			this.gameObject.renderer.enabled = false;
+		}
+
+		//snap to object
+		if (this.gameObject.renderer.enabled) {
+			Transform snapTransform = null;
+			if(attached == AttachPoint.Camera){
+				snapTransform = Camera.main.transform;
+			} else if (attached == AttachPoint.Gun) {
+				//snapTransform = asdf;
+			}
+
+			Vector3 snapPosition = snapTransform.position;
+			snapPosition -= snapTransform.TransformPoint (Vector3.forward * 10);
+			this.transform.position = new Vector3 (Camera.main.transform.position.x - 10, 0, Camera.main.transform.position.z + 0);
+		}
 	}
 }
