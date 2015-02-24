@@ -566,7 +566,7 @@ GameObject:
   - 114: {fileID: 386159927}
   m_Layer: 0
   m_Name: 1911_Pistol_01
-  m_TagString: Untagged
+  m_TagString: Pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,7 +693,7 @@ Transform:
   m_GameObject: {fileID: 398742940}
   m_LocalRotation: {x: 0, y: -.76142019, z: 0, w: .648258686}
   m_LocalPosition: {x: 22.4154091, y: 1.07012272, z: -4.56686831}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .0400000028, y: .0400000028, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!102 &398742942
@@ -1413,6 +1413,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0ea244dc9fb74414c83a4ef9ece96c2f, type: 3}
+      propertyPath: m_TagString
+      value: Pistol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ea244dc9fb74414c83a4ef9ece96c2f, type: 3}
   m_RootGameObject: {fileID: 386159925}
@@ -1464,6 +1468,14 @@ Prefab:
     - target: {fileID: 10200000, guid: da7593f7d2f98694e9ddd4a14ac39aa8, type: 2}
       propertyPath: m_Text
       value: Press 'C'
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: da7593f7d2f98694e9ddd4a14ac39aa8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .0400000028
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: da7593f7d2f98694e9ddd4a14ac39aa8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .0400000028
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da7593f7d2f98694e9ddd4a14ac39aa8, type: 2}

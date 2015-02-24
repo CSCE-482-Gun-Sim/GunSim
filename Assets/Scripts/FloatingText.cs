@@ -50,15 +50,21 @@ public class FloatingText : MonoBehaviour {
 		//snap to object
 		if (this.gameObject.renderer.enabled) {
 			Transform snapTransform = null;
-			if(attached == AttachPoint.Camera){
+			if (attached == AttachPoint.Camera) {
 				snapTransform = Camera.main.transform;
 			} else if (attached == AttachPoint.Gun) {
-				//snapTransform = asdf;
+				GameObject pistol = GameObject.FindGameObjectWithTag ("Pistol");
+				snapTransform = pistol.transform;
 			}
+			//Debug.Log ("Attaching to: " + snapTransform.gameObject.name);
 
 			Vector3 snapPosition = snapTransform.position;
-			snapPosition -= snapTransform.TransformPoint (Vector3.forward * 10);
-			this.transform.position = new Vector3 (Camera.main.transform.position.x - 10, 0, Camera.main.transform.position.z + 0);
+			//snapPosition -= snapTransform.TransformPoint (Vector3.forward * 10);
+			Debug.Log (snapPosition.x + " , " + snapPosition.z);
+			//this.transform.position = new Vector3 (Camera.main.transform.position.x - 10, 0, Camera.main.transform.position.z + 0);
+			this.transform.position = new Vector3 (snapPosition.x - 0.5f, snapPosition.y, snapPosition.z);
+		} else {
+			//Debug.Log ("Attaching to: (none)");
 		}
 	}
 }

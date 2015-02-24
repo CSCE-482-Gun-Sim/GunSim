@@ -11,7 +11,7 @@ public abstract class AbstractGun : Pickupable {
 	protected void Start () {
 		player = GameObject.FindWithTag("Player");
 
-		Debug.Log(player.transform.position);
+		//Debug.Log(player.transform.position);
 
 		playerFunctions = player.GetComponent<Pickup_Object> ();
 	}
