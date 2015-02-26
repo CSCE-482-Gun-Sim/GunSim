@@ -58,33 +58,4 @@ public class Hand : MonoBehaviour
 			}
 		}
 	}
-
-
-    void OnCollisionEnter(Collision col)
-    {
-		//print ("pizza");
-    }
-
-    /*void OnCollisionStay(Collision col)
-    {
-        if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !carrying)
-        {
-			//print ("okay");
-			//Pickupable p = col.collider.gameObject as Pickupable;
-			Pickupable p = col.collider.gameObject.GetComponent<Pickupable>();
-            if (p != null)
-            {
-                carrying = true;
-                carriedObject = p;
-                carriedObject.rigidbody.isKinematic = true;
-                carriedObject.transform.parent = this.gameObject.transform;
-                carriedObject.transform.localPosition = Vector3.zero;
-                carriedObject.transform.localRotation = Quaternion.identity;
-
-                pickupframe = true;
-
-                CrossHair.drawCrosshair = false;
-            }
-        }
-    }*/
 }
