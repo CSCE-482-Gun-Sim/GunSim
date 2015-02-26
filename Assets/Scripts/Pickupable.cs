@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pickupable : MonoBehaviour {
+public abstract class Pickupable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,5 +11,9 @@ public class Pickupable : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public virtual void carryUpdate(Hand hand)
+	{
 	}
 }

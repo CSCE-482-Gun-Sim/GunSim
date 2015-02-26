@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Hand : MonoBehaviour
 {
     bool carrying;
-    public GameObject carriedObject;
+    public Pickupable carriedObject;
     bool pickupframe;
     public bool rightHand;
 
@@ -19,11 +20,7 @@ public class Hand : MonoBehaviour
     {
         if (carrying)
         {
-            //if this carried object is a gun
-            if (carriedObject.GetComponent("AbstractGun") as AbstractGun != null)
-            {
-
-            }
+			carriedObject.carryUpdate(this);
 
             if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !pickupframe)
             {
@@ -39,30 +36,26 @@ public class Hand : MonoBehaviour
         pickupframe = false;
     }
 
-
-    void OnCollisionEnter(Collision col)
-    {
-        
-    }
-
-    void OnCollisionStay(Collision col)
-    {
-        if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !carrying)
-        {
-            Pickupable p = col.collider.GetComponent<Pickupable>();
-            if (p != null)
-            {
-                carrying = true;
-                carriedObject = p.gameObject;
-                carriedObject.rigidbody.isKinematic = true;
-                carriedObject.transform.parent = this.gameObject.transform;
-                carriedObject.transform.localPosition = Vector3.zero;
-                carriedObject.transform.localRotation = Quaternion.identity;
-
-                pickupframe = true;
-
-                CrossHair.drawCrosshair = false;
-            }
-        }
-    }
+	private void OnTriggerStay(Collider col)
+	{
+		if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !carrying)
+		{
+			//print ("okay");
+			//Pickupable p = col.collider.gameObject as Pickupable;
+			Pickupable p = col.collider.gameObject.GetComponent<Pickupable>();
+			if (p != null)
+			{
+				carrying = true;
+				carriedObject = p;
+				carriedObject.rigidbody.isKinematic = true;
+				carriedObject.transform.parent = this.gameObject.transform;
+				carriedObject.transform.localPosition = Vector3.zero;
+				carriedObject.transform.localRotation = Quaternion.identity;
+				
+				pickupframe = true;
+				
+				CrossHair.drawCrosshair = false;
+			}
+		}
+	}
 }
