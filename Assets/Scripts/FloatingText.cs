@@ -13,7 +13,7 @@ public class FloatingText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		text = this.GetComponent<TextMesh> ().text;
-		attached = AttachPoint.Camera;	
+		attached = AttachPoint.None;	
 	}
 
 //	void initialize(string t)
