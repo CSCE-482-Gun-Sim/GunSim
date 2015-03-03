@@ -12,4 +12,8 @@ public class Pistol : AbstractGun {
 	void Update () {
 		base.Update();
 	}
+
+	void FixedUpdate() {
+		base.FixedUpdate();
+	}
 }

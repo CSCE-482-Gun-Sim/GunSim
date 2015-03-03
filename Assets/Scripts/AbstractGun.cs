@@ -41,31 +41,20 @@ public abstract class AbstractGun : Pickupable {
 			}
 	}
 
-	//Need to make barrel position relative to the gun position, add them relative to gun axis not the world axis
+
 	protected void Update () {
+		
+	}
 
-		/*if (playerFunctions.carriedObject != null) {
-			if (Input.GetMouseButtonDown(0))
-			{
-				Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
-
-				Ray gunDirection = new Ray(playerFunctions.carriedObject.transform.position + barrel_offset, 
-				                           playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward)*50);
-
-				RaycastHit hit;
-				if(Physics.Raycast (gunDirection, out hit))
-				{
-					Debug.DrawRay(playerFunctions.carriedObject.transform.position + barrel_offset, 
-					              playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward) * 10, Color.green, 100);
-
-					if(hit.collider.gameObject.tag == "Target")
-					{	
-						Debug.Log("HIT");
-						Quaternion bulletHoleRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-						Instantiate(bulletHole, hit.point, bulletHoleRotation);
-					}
-				}
-			}
-		}*/
+	//makes object not bounce
+	protected void FixedUpdate() {
+		var currentVelocity = rigidbody.velocity;
+		
+		if (currentVelocity.y <= 0f) 
+			return;
+		
+		currentVelocity.y = 0f;
+		
+		rigidbody.velocity = currentVelocity;
 	}
 }
