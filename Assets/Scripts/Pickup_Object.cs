@@ -7,6 +7,7 @@ public class Pickup_Object : MonoBehaviour
     public Hand rHand;
     public Hand lHand;
     public float distance;
+
     // Use this for initialization
     void Start()
     {
