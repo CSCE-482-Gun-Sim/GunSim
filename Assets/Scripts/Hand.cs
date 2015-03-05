@@ -50,7 +50,9 @@ public class Hand : MonoBehaviour
 				carriedObject.rigidbody.isKinematic = true;
 				carriedObject.transform.parent = this.gameObject.transform;
 				carriedObject.transform.localPosition = Vector3.zero;
-				carriedObject.transform.localRotation = Quaternion.identity;
+				//Quaternion.identity + 
+				carriedObject.transform.localRotation = Quaternion.Euler(carriedObject.handRotationOffset.x, carriedObject.handRotationOffset.y, carriedObject.handRotationOffset.z);
+				//carriedObject.transform.localRotation = carriedObject.handRotationOffset;
 				
 				pickupframe = true;
 				

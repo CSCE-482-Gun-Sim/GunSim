@@ -48,13 +48,17 @@ public abstract class AbstractGun : Pickupable {
 
 	//makes object not bounce
 	protected void FixedUpdate() {
-		var currentVelocity = rigidbody.velocity;
-		
-		if (currentVelocity.y <= 0f) 
-			return;
-		
-		currentVelocity.y = 0f;
-		
-		rigidbody.velocity = currentVelocity;
+		try{
+			var currentVelocity = rigidbody.velocity;
+			
+			if (currentVelocity.y <= 0f) 
+				return;
+			
+			currentVelocity.y = 0f;
+			rigidbody.velocity = currentVelocity;
+		} catch (UnityException e){
+
+		}
+
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 
 public abstract class Pickupable : MonoBehaviour {
 
+	public Vector3 handRotationOffset;
 	// Use this for initialization
 	void Start () {
 	

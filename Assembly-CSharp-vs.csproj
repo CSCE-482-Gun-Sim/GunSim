@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\CrossHair.cs" />
      <Compile Include="Assets\Scripts\FloatingText.cs" />
      <Compile Include="Assets\Scripts\Hand.cs" />
+     <Compile Include="Assets\Scripts\Magazine.cs" />
      <Compile Include="Assets\Scripts\Pickup_Object.cs" />
      <Compile Include="Assets\Scripts\Pickupable.cs" />
      <Compile Include="Assets\Scripts\Pistol.cs" />
