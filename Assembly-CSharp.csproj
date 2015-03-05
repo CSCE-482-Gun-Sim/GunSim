@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Pickup_Object.cs" />
      <Compile Include="Assets\Scripts\Pickupable.cs" />
      <Compile Include="Assets\Scripts\Pistol.cs" />
+     <Compile Include="Assets\Scripts\SafetyMonitor.cs" />
      <Compile Include="Assets\Test.cs" />
      <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
      <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />
