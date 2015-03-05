@@ -7,6 +7,7 @@ public class Pistol : AbstractGun {
 	// Use this for initialization
 	void Start () {
 		base.Start ();
+		this.renderer.material.color = Color.black;
 	}
 	
 	// Update is called once per frame

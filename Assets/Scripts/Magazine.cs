@@ -38,9 +38,11 @@ public class Magazine : MonoBehaviour {
 			snapTransform = pistol.transform;
 		}
 		//Debug.Log ("Attaching to: " + snapTransform.gameObject.name);
-		
-		Vector3 snapPosition = snapTransform.position;
-		Debug.Log (snapPosition.x + " , " + snapPosition.z);
-		this.transform.position = new Vector3 (snapPosition.x, snapPosition.y, snapPosition.z);
+
+		if (snapTransform != null) {
+			Vector3 snapPosition = snapTransform.position;
+			Debug.Log (snapPosition.x + " , " + snapPosition.z);
+			this.transform.position = new Vector3 (snapPosition.x, snapPosition.y, snapPosition.z);
+		}
 	}
 }
