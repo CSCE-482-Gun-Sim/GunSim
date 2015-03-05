@@ -15,12 +15,6 @@ public class FloatingText : MonoBehaviour {
 		text = this.GetComponent<TextMesh> ().text;
 		attached = AttachPoint.None;	
 	}
-
-//	void initialize(string t)
-//	{
-//		text = t;
-//		this.GetComponent<TextMesh> ().text = text;
-//	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -59,9 +53,7 @@ public class FloatingText : MonoBehaviour {
 			//Debug.Log ("Attaching to: " + snapTransform.gameObject.name);
 
 			Vector3 snapPosition = snapTransform.position;
-			//snapPosition -= snapTransform.TransformPoint (Vector3.forward * 10);
 			Debug.Log (snapPosition.x + " , " + snapPosition.z);
-			//this.transform.position = new Vector3 (Camera.main.transform.position.x - 10, 0, Camera.main.transform.position.z + 0);
 			this.transform.position = new Vector3 (snapPosition.x - 0.5f, snapPosition.y, snapPosition.z);
 		} else {
 			//Debug.Log ("Attaching to: (none)");
