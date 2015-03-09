@@ -27,6 +27,7 @@ public class Hand : MonoBehaviour
                 carrying = false;
                 carriedObject.rigidbody.isKinematic = false;
                 carriedObject.transform.parent = null;
+				carriedObject.collider.isTrigger = false;
                 carriedObject = null;
                 CrossHair.drawCrosshair = true;
 
@@ -51,7 +52,8 @@ public class Hand : MonoBehaviour
 				carriedObject.transform.parent = this.gameObject.transform;
 				carriedObject.transform.localPosition = Vector3.zero; 
 				carriedObject.transform.localRotation = Quaternion.Euler(carriedObject.handRotationOffset.x, carriedObject.handRotationOffset.y, carriedObject.handRotationOffset.z);
-				
+				carriedObject.collider.isTrigger = true;
+
 				pickupframe = true;
 				
 				CrossHair.drawCrosshair = false;
