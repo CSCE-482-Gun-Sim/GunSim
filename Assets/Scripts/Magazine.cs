@@ -10,6 +10,8 @@ public class Magazine : MonoBehaviour {
 	};
 	public Vector3 handRotation;
 	public Vector3 pistolRotation;
+	public Vector3 handPosition;
+	public Vector3 pistolPosition;
 	bool needsToLerp = false;
 	float timer;
 
@@ -40,37 +42,46 @@ public class Magazine : MonoBehaviour {
 
 		//lerp to position
 		//if (needsToLerp) {
-			Transform snapTransform = null;
-			GameObject hand = null;
-			GameObject pistol = null;
-			if (attached == AttachPoint.Hand) {
-				hand = GameObject.FindGameObjectWithTag ("LeftHand");
-				snapTransform = hand.transform;
-			} else if (attached == AttachPoint.Gun) {
-				pistol = GameObject.FindGameObjectWithTag ("Pistol");
-				snapTransform = pistol.transform;
+		Transform snapTransform = null;
+		GameObject hand = null;
+		GameObject pistol = null;
+		if (attached == AttachPoint.Hand) {
+			hand = GameObject.FindGameObjectWithTag ("LeftHand");
+			snapTransform = hand.transform;
+		} else if (attached == AttachPoint.Gun) {
+			pistol = GameObject.FindGameObjectWithTag ("Pistol");
+			snapTransform = pistol.transform;
+		}
+		
+		if (snapTransform != null) {
+			Vector3 snapPosition = snapTransform.position;
+			Vector3 positionCorrection = Vector3.zero;
+			if(attached == AttachPoint.Gun){
+				positionCorrection = pistolPosition;
+			} else if (attached == AttachPoint.Hand) {
+				positionCorrection = handPosition;
 			}
+			this.transform.position = new Vector3 (snapPosition.x, 
+		                                       snapPosition.y , snapPosition.z);
 			
-			if (snapTransform != null) {
-				Vector3 snapPosition = snapTransform.position;
-				//Debug.Log (snapPosition.x + " , " + snapPosition.z);
-				this.transform.position = new Vector3 (snapPosition.x + 0.20f, snapPosition.y, snapPosition.z);
-				
-				this.rigidbody.isKinematic = true;
-				Vector3 rotationVec = Vector3.zero;
-				if(attached == AttachPoint.Hand){
-					rotationVec = handRotation;
-					this.transform.parent = hand.transform;
-				}else if (attached == AttachPoint.Gun) {
-					rotationVec = pistolRotation;
-					this.transform.parent = pistol.transform;
-				}
-				this.transform.localPosition = Vector3.zero; 
-
-				if(rotationVec != Vector3.zero){
-					this.transform.localRotation = Quaternion.Euler(rotationVec.x, rotationVec.y, rotationVec.z);
-				}
+			this.rigidbody.isKinematic = true;
+			Vector3 rotationVec = Vector3.zero;
+			if(attached == AttachPoint.Hand){
+				rotationVec = handRotation;
+				this.transform.parent = hand.transform;
+			}else if (attached == AttachPoint.Gun) {
+				rotationVec = pistolRotation;
+				this.transform.parent = pistol.transform;
 			}
+			this.transform.localPosition = Vector3.zero; 
+
+			if(rotationVec != Vector3.zero){
+				this.transform.localRotation = Quaternion.Euler(rotationVec.x, rotationVec.y, rotationVec.z);
+			}
+			if(positionCorrection != Vector3.zero){
+				this.transform.localPosition = positionCorrection;
+			}
+		}
 		//}
 
 	}
@@ -82,5 +93,21 @@ public class Magazine : MonoBehaviour {
 			i += Time.deltaTime * rate;
 			this.transform.position = Vector3.Lerp(startPos, endPos, i);
 		}
+	}
+
+	//makes object not bounce
+	protected void FixedUpdate() {
+		try{
+			var currentVelocity = rigidbody.velocity;
+			
+			if (currentVelocity.y <= 0f) 
+				return;
+			
+			currentVelocity.y = 0f;
+			rigidbody.velocity = currentVelocity;
+		} catch (UnityException e){
+			
+		}
+		
 	}
 }
