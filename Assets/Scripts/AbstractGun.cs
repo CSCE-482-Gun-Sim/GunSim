@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class AbstractGun : Pickupable {
-	protected Vector3 barrel_offset;
+	public Vector3 barrel_offset;
 	GameObject player;
 	Pickup_Object playerFunctions;
 	public Transform bulletHole;
