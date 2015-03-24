@@ -1,19 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FloatingText.cs">
     <Files>
-      <File FileName="Assets\Scripts\FloatingText.cs" Line="79" Column="6" />
-      <File FileName="Assets\Scripts\AbstractGun.cs" Line="5" Column="8" />
+      <File FileName="Assets\Scripts\SafetyMonitor.cs" Line="30" Column="136" />
+      <File FileName="Assets\Scripts\FloatingText.cs" Line="44" Column="3" />
+      <File FileName="Assets\Scripts\AbstractGun.cs" Line="25" Column="36" />
       <File FileName="Assets\Scripts\Pickup_Object.cs" Line="16" Column="81" />
       <File FileName="Assets\Scripts\Hand.cs" Line="47" Column="13" />
       <File FileName="Assets\Scripts\Pistol.cs" Line="14" Column="3" />
-      <File FileName="Assets\Scripts\SafetyMonitor.cs" Line="24" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Matt\Documents\GunSim\Assets\Scripts\SafetyMonitor.cs" line="22" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

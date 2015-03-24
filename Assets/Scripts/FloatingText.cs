@@ -16,7 +16,7 @@ public class FloatingText : MonoBehaviour {
 
 	public void setText(string t)
 	{
-		text = t;
+		this.GetComponent<TextMesh>().text = t;
 	}
 
 	// Use this for initialization
@@ -24,24 +24,26 @@ public class FloatingText : MonoBehaviour {
 		text = this.GetComponent<TextMesh> ().text;
 		attached = AttachPoint.None;	
 		start = this.transform.position;
+		this.gameObject.renderer.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 		//when C is pressed, cycle through text locations
-		if (Input.GetKeyDown (KeyCode.C)) {
+		/*if (Input.GetKeyDown (KeyCode.C)) {
 			if (attached == AttachPoint.Camera){
 				attached = AttachPoint.Gun;
 			} else if (attached == AttachPoint.Gun){
-				attached = AttachPoint.None;
+				this.gameObject.renderer.enabled = false;
 			} else {
 				attached = AttachPoint.Camera;
+				this.gameObject.renderer.enabled = true;
 			}
 			startTime = Time.time;
-		}
+		}*/
 		
-		if(attached == AttachPoint.Camera) {
+		/*if(attached == AttachPoint.Camera) {
 			this.GetComponent<TextMesh> ().text = "Press C to snap to Gun";
 			this.gameObject.renderer.enabled = true;
 		} else if(attached == AttachPoint.Gun) {
@@ -50,7 +52,7 @@ public class FloatingText : MonoBehaviour {
 		} else {
 			this.GetComponent<TextMesh> ().text = "";
 			this.gameObject.renderer.enabled = false;
-		}
+		}*/
 		
 		//snap to object
 		if (this.gameObject.renderer.enabled) {
@@ -61,22 +63,17 @@ public class FloatingText : MonoBehaviour {
 				GameObject pistol = GameObject.FindGameObjectWithTag ("Pistol");
 				snapTransform = pistol.transform;
 			}
-			Debug.Log ("Attaching to: " + snapTransform.gameObject.name);
-			
+
 			Vector3 snapPosition = snapTransform.position;
-			Debug.Log (snapPosition.x + " , " + snapPosition.z);
+
+			//Vector3 end = new Vector3 (snapPosition.x - 0.5f, snapPosition.y, snapPosition.z);
 			
+			//float journeyLength = Vector3.Distance(start, end);
 			
+			//float distCovered = (Time.time - startTime) * speed;
+			//float fracJourney = distCovered / journeyLength;
 			
-			
-			Vector3 end = new Vector3 (snapPosition.x - 0.5f, snapPosition.y, snapPosition.z);
-			
-			float journeyLength = Vector3.Distance(start, end);
-			
-			float distCovered = (Time.time - startTime) * speed;
-			float fracJourney = distCovered / journeyLength;
-			
-			//this.transform.position = Vector3.Lerp(start, end, fracJourney);
+			//this.transform.position = Vector3.MoveToward(start, end, fracJourney);
 			
 			
 			this.transform.position = new Vector3 (snapPosition.x - 0.5f, snapPosition.y, snapPosition.z);

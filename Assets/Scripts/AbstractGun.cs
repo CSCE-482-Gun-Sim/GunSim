@@ -18,24 +18,34 @@ public abstract class AbstractGun : Pickupable {
 
 	public override void carryUpdate(Hand hand)
 	{
+
+
 		if(((hand.rightHand && Input.GetMouseButtonDown(0)) || (!hand.rightHand && Input.GetMouseButtonDown(1))))
 		{
 				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
-				
-				Ray gunDirection = new Ray(this.gameObject.transform.position + this.gameObject.transform.TransformDirection(barrel_offset), 
-				                           this.gameObject.transform.TransformDirection(Vector3.forward)*50);
-				
-				RaycastHit hit;
-				if(Physics.Raycast (gunDirection, out hit))
+
+			audio.Play ();
+
+			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ this.transform.forward;
+
+			Debug.Log (fwd);
+
+			Ray gunDirection = new Ray(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
+
+			LayerMask layerMask = 1 << 1; //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
+
+			RaycastHit hit;
+
+			if(Physics.Raycast (gunDirection, out hit, layerMask))
 				{
-				Debug.DrawRay(this.gameObject.transform.position + this.gameObject.transform.TransformDirection (barrel_offset), 
-					              this.gameObject.transform.TransformDirection(Vector3.forward) * 10, Color.green, 100);
+				Debug.DrawRay(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection (barrel_offset)*/, fwd * 10, Color.green, 100);
 					
 					if(hit.collider.gameObject.tag == "Target")
 					{	
 						Debug.Log("HIT");
 						Quaternion bulletHoleRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 						Instantiate(bulletHole, hit.point, bulletHoleRotation);
+
 					}
 				}
 			}

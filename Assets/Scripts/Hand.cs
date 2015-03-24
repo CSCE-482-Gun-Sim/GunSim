@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Hand : MonoBehaviour
 {
-    bool carrying;
+    public bool carrying;
     public Pickupable carriedObject;
     bool pickupframe;
     public bool rightHand;
