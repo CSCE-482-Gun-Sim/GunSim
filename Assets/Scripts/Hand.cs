@@ -25,9 +25,9 @@ public class Hand : MonoBehaviour
             if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !pickupframe)
             {
                 carrying = false;
-                carriedObject.rigidbody.isKinematic = false;
+                carriedObject.GetComponent<Rigidbody>().isKinematic = false;
                 carriedObject.transform.parent = null;
-				carriedObject.collider.isTrigger = false;
+				carriedObject.GetComponent<Collider>().isTrigger = false;
                 carriedObject = null;
                 CrossHair.drawCrosshair = true;
 
@@ -43,16 +43,16 @@ public class Hand : MonoBehaviour
 		{
 			//print ("okay");
 			//Pickupable p = col.collider.gameObject as Pickupable;
-			Pickupable p = col.collider.gameObject.GetComponent<Pickupable>();
+			Pickupable p = col.GetComponent<Collider>().gameObject.GetComponent<Pickupable>();
 			if (p != null)
 			{
 				carrying = true;
 				carriedObject = p;
-				carriedObject.rigidbody.isKinematic = true;
+				carriedObject.GetComponent<Rigidbody>().isKinematic = true;
 				carriedObject.transform.parent = this.gameObject.transform;
 				carriedObject.transform.localPosition = Vector3.zero; 
 				carriedObject.transform.localRotation = Quaternion.Euler(carriedObject.handRotationOffset.x, carriedObject.handRotationOffset.y, carriedObject.handRotationOffset.z);
-				carriedObject.collider.isTrigger = true;
+				carriedObject.GetComponent<Collider>().isTrigger = true;
 
 				pickupframe = true;
 				

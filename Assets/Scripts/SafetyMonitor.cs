@@ -21,7 +21,7 @@ public class SafetyMonitor : MonoBehaviour {
 	}
 
 	void pointDownRange(){
-		GameObject.Find ("WarningText").renderer.enabled = false;
+		GameObject.Find ("WarningText").GetComponent<Renderer>().enabled = false;
 
 		Hand rHand = GameObject.FindWithTag("RightHand").GetComponent("Hand") as Hand;
 		Hand lHand = GameObject.FindWithTag("LeftHand").GetComponent("Hand") as Hand;
@@ -51,7 +51,7 @@ public class SafetyMonitor : MonoBehaviour {
 					GameObject.Find ("WarningText").GetComponent<FloatingText>().attached = FloatingText.AttachPoint.Camera;
 					GameObject.Find ("WarningText").GetComponent<FloatingText>().setText("Please point down range");
 					Debug.Log("Not Pointing The Right Gun Down Range");
-					GameObject.Find ("WarningText").renderer.enabled = true;
+					GameObject.Find ("WarningText").GetComponent<Renderer>().enabled = true;
 				}
 			}
 		}
@@ -71,7 +71,7 @@ public class SafetyMonitor : MonoBehaviour {
 					GameObject.Find ("WarningText").GetComponent<FloatingText>().attached = FloatingText.AttachPoint.Camera;
 					GameObject.Find ("WarningText").GetComponent<FloatingText>().setText("Please point down range");
 					Debug.Log("Not Pointing The Left Gun Down Range");
-					GameObject.Find ("WarningText").renderer.enabled = true;
+					GameObject.Find ("WarningText").GetComponent<Renderer>().enabled = true;
 					
 				}
 			}

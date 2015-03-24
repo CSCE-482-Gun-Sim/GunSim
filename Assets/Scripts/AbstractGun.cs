@@ -24,7 +24,7 @@ public abstract class AbstractGun : Pickupable {
 		{
 				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 
-			audio.Play ();
+			GetComponent<AudioSource>().Play ();
 
 			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ this.transform.forward;
 
@@ -59,13 +59,13 @@ public abstract class AbstractGun : Pickupable {
 	//makes object not bounce
 	protected void FixedUpdate() {
 		try{
-			var currentVelocity = rigidbody.velocity;
+			var currentVelocity = GetComponent<Rigidbody>().velocity;
 			
 			if (currentVelocity.y <= 0f) 
 				return;
 			
 			currentVelocity.y = 0f;
-			rigidbody.velocity = currentVelocity;
+			GetComponent<Rigidbody>().velocity = currentVelocity;
 		} catch (UnityException e){
 
 		}

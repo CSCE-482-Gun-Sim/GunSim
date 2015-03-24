@@ -24,7 +24,7 @@ public class FloatingText : MonoBehaviour {
 		text = this.GetComponent<TextMesh> ().text;
 		attached = AttachPoint.None;	
 		start = this.transform.position;
-		this.gameObject.renderer.enabled = false;
+		this.gameObject.GetComponent<Renderer>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -55,7 +55,7 @@ public class FloatingText : MonoBehaviour {
 		}*/
 		
 		//snap to object
-		if (this.gameObject.renderer.enabled) {
+		if (this.gameObject.GetComponent<Renderer>().enabled) {
 			Transform snapTransform = null;
 			if (attached == AttachPoint.Camera) {
 				snapTransform = Camera.main.transform;

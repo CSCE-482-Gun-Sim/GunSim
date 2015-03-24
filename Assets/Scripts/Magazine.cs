@@ -37,15 +37,15 @@ public class Magazine : MonoBehaviour {
 			if (attached == AttachPoint.Hand){
 				needsToLerp = true;
 				attached = AttachPoint.Gun;
-				this.rigidbody.isKinematic = true;
+				this.GetComponent<Rigidbody>().isKinematic = true;
 			} else if (attached == AttachPoint.Gun){
 				attached = AttachPoint.None;
-				this.rigidbody.isKinematic = false;
+				this.GetComponent<Rigidbody>().isKinematic = false;
 				this.transform.parent = null;
 			} else {
 				needsToLerp = true;
 				attached = AttachPoint.Hand;
-				this.rigidbody.isKinematic = true;
+				this.GetComponent<Rigidbody>().isKinematic = true;
 			}
 		}
 
@@ -96,7 +96,7 @@ public class Magazine : MonoBehaviour {
 			this.transform.position = new Vector3 (snapPosition.x, 
                                        snapPosition.y, snapPosition.z);
 
-			this.rigidbody.isKinematic = true;
+			this.GetComponent<Rigidbody>().isKinematic = true;
 			Vector3 rotationVec = Vector3.zero;
 			if (attached == AttachPoint.Hand) {
 				rotationVec = handRotation;
@@ -119,13 +119,13 @@ public class Magazine : MonoBehaviour {
 	//makes object not bounce
 	protected void FixedUpdate() {
 		try{
-			var currentVelocity = rigidbody.velocity;
+			var currentVelocity = GetComponent<Rigidbody>().velocity;
 			
 			if (currentVelocity.y <= 0f) 
 				return;
 			
 			currentVelocity.y = 0f;
-			rigidbody.velocity = currentVelocity;
+			GetComponent<Rigidbody>().velocity = currentVelocity;
 		} catch (UnityException e){
 			
 		}
