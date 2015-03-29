@@ -63,7 +63,6 @@
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
      <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
      <Compile Include="Assets\Scripts\AbstractGun.cs" />
-     <Compile Include="Assets\Scripts\CrossHair.cs" />
      <Compile Include="Assets\Scripts\FloatingText.cs" />
      <Compile Include="Assets\Scripts\Hand.cs" />
      <Compile Include="Assets\Scripts\Magazine.cs" />
