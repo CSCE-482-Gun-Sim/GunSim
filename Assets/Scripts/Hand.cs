@@ -29,7 +29,6 @@ public class Hand : MonoBehaviour
                 carriedObject.transform.parent = null;
 				carriedObject.GetComponent<Collider>().isTrigger = false;
                 carriedObject = null;
-                CrossHair.drawCrosshair = true;
 
                 print("Dropping");
             }
@@ -55,8 +54,6 @@ public class Hand : MonoBehaviour
 				carriedObject.GetComponent<Collider>().isTrigger = true;
 
 				pickupframe = true;
-				
-				CrossHair.drawCrosshair = false;
 			}
 		}
 	}
