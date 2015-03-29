@@ -476,7 +476,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8bb54f9752658c042b33ede764c58b0d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -613,34 +613,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &314675070
-GameObject:
-  m_PrefabParentObject: {fileID: 100004, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
-  m_PrefabInternal: {fileID: 185770452}
 --- !u!4 &314675071
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
   m_PrefabInternal: {fileID: 185770452}
---- !u!114 &314675077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 314675070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0434faf5f35d43c44a4db0354b735a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshairColor: {r: 1, g: 1, b: 1, a: 1}
-  width: 1
-  height: 3
-  spread:
-    sSpread: 20
-    maxSpread: 60
-    minSpread: 20
-    spreadPerSecond: 30
-    decreasePerSecond: 25
 --- !u!1 &335190475
 GameObject:
   m_ObjectHideFlags: 0
