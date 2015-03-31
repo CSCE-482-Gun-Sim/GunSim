@@ -24,7 +24,7 @@ public abstract class AbstractGun : Pickupable {
 				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 			gunSlide.slideAction();
 			GetComponent<AudioSource>().Play ();
-			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ this.transform.forward;
+			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ -this.transform.right;
 			Ray gunDirection = new Ray(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
 			LayerMask layerMask = 1 << 1; //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
 			RaycastHit hit;
