@@ -7,12 +7,14 @@ public abstract class AbstractGun : Pickupable {
 	GunSlide gunSlide;
 	Pickup_Object playerFunctions;
 	public Transform bulletHole;
+	ParticleSystem flash;
 
 	// Use this for initialization
 	protected void Start () {
 		player = GameObject.FindWithTag("Player");
 		gunSlide = (GunSlide)GameObject.FindWithTag ("GunSlide").GetComponent(typeof(GunSlide));
 		playerFunctions = player.GetComponent<Pickup_Object> ();
+		flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
 	}
 
 	public override void carryUpdate(Hand hand)
@@ -24,6 +26,7 @@ public abstract class AbstractGun : Pickupable {
 				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 			gunSlide.slideAction();
 			GetComponent<AudioSource>().Play ();
+			showMuzzleFlash();
 			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ -this.transform.right;
 			Ray gunDirection = new Ray(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
 			LayerMask layerMask = 1 << 1; //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
@@ -42,6 +45,10 @@ public abstract class AbstractGun : Pickupable {
 					}
 				}
 			}
+	}
+
+	void showMuzzleFlash(){
+		flash.Play ();
 	}
 
 

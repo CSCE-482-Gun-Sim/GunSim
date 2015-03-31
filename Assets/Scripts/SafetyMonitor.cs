@@ -21,7 +21,7 @@ public class SafetyMonitor : MonoBehaviour {
 	}
 
 	void pointDownRange(){
-		GameObject.Find ("WarningText").GetComponent<Renderer>().enabled = false;
+
 
 		Hand rHand = GameObject.FindWithTag("RightHand").GetComponent("Hand") as Hand;
 		Hand lHand = GameObject.FindWithTag("LeftHand").GetComponent("Hand") as Hand;
@@ -50,8 +50,9 @@ public class SafetyMonitor : MonoBehaviour {
 	}
 
 	void checkPointingDownRange(AbstractGun gun){
+
 		Ray gunDirection = new Ray (gun.gameObject.transform.position + gun.gameObject.transform.TransformDirection (gun.barrel_offset), 
-		                            gun.gameObject.transform.forward * 50);
+		                            -gun.gameObject.transform.right * 50);
 		
 		LayerMask layerMask = 1 << 8; //This ignores every layer except the SafetyMonitor layer, meaning the raycast will only be able to collide with the Range Plane or other Safety Layer Colliders
 		

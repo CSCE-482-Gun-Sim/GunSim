@@ -12,6 +12,7 @@ TagManager:
   - FloatingText
   - AudioSource
   - GunSlide
+  - MuzzleFlash
   layers:
   - Default
   - TransparentFX
