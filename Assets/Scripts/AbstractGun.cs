@@ -7,6 +7,7 @@ public abstract class AbstractGun : Pickupable {
 	GunSlide gunSlide;
 	Pickup_Object playerFunctions;
 	public Transform bulletHole;
+	bool TriggerPulled;
 
 	// Use this for initialization
 	protected void Start () {
@@ -19,9 +20,30 @@ public abstract class AbstractGun : Pickupable {
 	{
 
 		//if gun is shot
-		if(((hand.rightHand && Input.GetMouseButtonDown(0)) || (!hand.rightHand && Input.GetMouseButtonDown(1))))
+		bool LeftTrigger = false;
+		bool RightTrigger = false;
+
+		if (hand.rightHand) {
+						if (SixenseInput.Controllers [1].Trigger > .8) {
+								RightTrigger = true;
+						} else {
+								TriggerPulled = false;
+						}
+				}
+		if (!hand.rightHand) {
+						if (SixenseInput.Controllers [0].Trigger > .8) {
+								LeftTrigger = true;
+						} else {
+								TriggerPulled = false;
+						}
+				}
+
+
+
+		if(((hand.rightHand && (Input.GetMouseButtonDown(0)|| RightTrigger)) || (!hand.rightHand && (Input.GetMouseButtonDown(1) ||LeftTrigger))))
 		{
-				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
+			TriggerPulled = true;
+			//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 			gunSlide.slideAction();
 			GetComponent<AudioSource>().Play ();
 			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ this.transform.forward;

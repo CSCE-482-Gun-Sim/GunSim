@@ -21,8 +21,10 @@ public class Hand : MonoBehaviour
         if (carrying)
         {
 			carriedObject.carryUpdate(this);
+			bool LeftBumper = SixenseInput.Controllers[0].GetButton(SixenseButtons.BUMPER);
+			bool RightBumper = SixenseInput.Controllers[1].GetButton(SixenseButtons.BUMPER);
 
-            if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !pickupframe)
+			if (!pickupframe && (rightHand && (Input.GetKeyDown(KeyCode.E) || RightBumper) || (!rightHand && (Input.GetKeyDown(KeyCode.Q) ||LeftBumper))))
             {
                 carrying = false;
                 carriedObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -38,7 +40,10 @@ public class Hand : MonoBehaviour
 
 	private void OnTriggerStay(Collider col)
 	{
-		if (((rightHand && Input.GetKeyDown(KeyCode.E)) || (!rightHand && Input.GetKeyDown(KeyCode.Q))) && !carrying)
+		bool LeftBumper = SixenseInput.Controllers[0].GetButton(SixenseButtons.BUMPER);
+		bool RightBumper = SixenseInput.Controllers[1].GetButton(SixenseButtons.BUMPER);
+
+		if (((rightHand && (Input.GetKeyDown(KeyCode.E)||RightBumper)) || (!rightHand && (Input.GetKeyDown(KeyCode.Q)||LeftBumper))) && !carrying)
 		{
 			//print ("okay");
 			//Pickupable p = col.collider.gameObject as Pickupable;

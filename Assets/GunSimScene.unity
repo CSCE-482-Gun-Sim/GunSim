@@ -2009,7 +2009,7 @@ GameObject:
   - 114: {fileID: 2119278393}
   m_Layer: 0
   m_Name: HandsController
-  m_TagString: Untagged
+  m_TagString: Hydra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

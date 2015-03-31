@@ -12,6 +12,7 @@ TagManager:
   - FloatingText
   - AudioSource
   - GunSlide
+  - Hydra
   layers:
   - Default
   - TransparentFX
