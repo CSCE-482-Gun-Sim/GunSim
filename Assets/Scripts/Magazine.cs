@@ -42,11 +42,11 @@ public class Magazine : MonoBehaviour {
 				attached = AttachPoint.None;
 				this.GetComponent<Rigidbody>().isKinematic = false;
 				this.transform.parent = null;
-			} else {
-				needsToLerp = true;
-				attached = AttachPoint.Hand;
-				this.GetComponent<Rigidbody>().isKinematic = true;
-			}
+			} //else {
+				//needsToLerp = true;
+				//attached = AttachPoint.Hand;
+				//this.GetComponent<Rigidbody>().isKinematic = true;
+			//}
 		}
 
 		Transform snapTransform = null;
