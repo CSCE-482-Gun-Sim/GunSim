@@ -12,7 +12,11 @@ TagManager:
   - FloatingText
   - AudioSource
   - GunSlide
+<<<<<<< HEAD
   - Hydra
+=======
+  - MuzzleFlash
+>>>>>>> 1d1e9e3ee52d7b3b2fd8a1ad375cc68ab4bc0485
   layers:
   - Default
   - TransparentFX
