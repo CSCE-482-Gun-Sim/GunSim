@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Target
-  - RightHand
-  - LeftHand
-  - Pistol
-  - RangePlane
-  - FloatingText
-  - AudioSource
-  - GunSlide
-<<<<<<< HEAD
-  - Hydra
-=======
-  - MuzzleFlash
->>>>>>> 1d1e9e3ee52d7b3b2fd8a1ad375cc68ab4bc0485
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -26,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - SafetyMonitor
-  - GunSlide
+  - 
+  - 
   - 
   - 
   - 

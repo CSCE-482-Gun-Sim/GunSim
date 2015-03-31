@@ -7,11 +7,8 @@ public abstract class AbstractGun : Pickupable {
 	GunSlide gunSlide;
 	Pickup_Object playerFunctions;
 	public Transform bulletHole;
-<<<<<<< HEAD
 	bool TriggerPulled;
-=======
 	ParticleSystem flash;
->>>>>>> 1d1e9e3ee52d7b3b2fd8a1ad375cc68ab4bc0485
 
 	// Use this for initialization
 	protected void Start () {
