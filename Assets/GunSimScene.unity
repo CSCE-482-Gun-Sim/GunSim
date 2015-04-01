@@ -906,6 +906,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 12b10f08ea4130c44a4b80644c707b73, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12b10f08ea4130c44a4b80644c707b73, type: 3}
   m_IsPrefabParent: 0
@@ -1180,6 +1184,7 @@ MonoBehaviour:
   pistolPosition: {x: 4.07000017, y: .0700000003, z: -.959999979}
   lerpHandPosition: {x: .200000003, y: 0, z: 0}
   lerpPistolPosition: {x: 0, y: 0, z: 0}
+  attached: 0
 --- !u!23 &1093399089
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1344,7 +1349,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1254484789}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 

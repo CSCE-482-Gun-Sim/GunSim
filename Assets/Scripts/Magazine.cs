@@ -32,9 +32,10 @@ public class Magazine : Pickupable {
 	// Update is called once per frame
 	void Update () {
 
+		Hand rightHand = (Hand)GameObject.FindWithTag ("RightHand").GetComponent<Hand> ();
 		//put magazine in gun or drop magazine
 		if (Input.GetKeyDown (KeyCode.V)) {
-			if (attached == AttachPoint.Hand){
+			if (attached == AttachPoint.Hand && rightHand.carriedObject != null){
 				needsToLerp = true;
 				attached = AttachPoint.Gun;
 				this.GetComponent<Rigidbody>().isKinematic = true;
