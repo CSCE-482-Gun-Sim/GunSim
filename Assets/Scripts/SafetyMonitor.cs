@@ -43,7 +43,6 @@ public class SafetyMonitor : MonoBehaviour {
 			checkPointingDownRange(lGun);
 		}
 		if(rGun == null && lGun == null){
-			Debug.Log ("No gun held.");
 			ScreenText.warning = ScreenText.Warning.None;
 		}
 
@@ -59,11 +58,9 @@ public class SafetyMonitor : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast (gunDirection, out hit, layerMask)) {	//Debug.Log(hit.collider.gameObject.tag);
 			if (hit.collider.gameObject.tag != "RangePlane") {//Might want to use collider filters so that you dont get bugs when shooting	
-				Debug.Log ("Not pointing correctly");
 				//ScreenText text = GameObject.FindWithTag ("MainCamera").GetComponent(typeof(ScreenText));
 				ScreenText.warning = ScreenText.Warning.PointDownRange;
 			} else {
-				Debug.Log ("Pointing correctly.");
 				ScreenText.warning = ScreenText.Warning.None;
 			}
 		}

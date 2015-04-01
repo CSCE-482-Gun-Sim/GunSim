@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Magazine : MonoBehaviour {
+public class Magazine : Pickupable {
 	private string text;
 	enum AttachPoint{
 		None,

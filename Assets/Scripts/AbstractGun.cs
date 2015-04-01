@@ -9,6 +9,7 @@ public abstract class AbstractGun : Pickupable {
 	public Transform bulletHole;
 	bool TriggerPulled;
 	ParticleSystem flash;
+	GameObject loadedMagazine;
 
 	// Use this for initialization
 	protected void Start () {
@@ -16,6 +17,7 @@ public abstract class AbstractGun : Pickupable {
 		gunSlide = (GunSlide)GameObject.FindWithTag ("GunSlide").GetComponent(typeof(GunSlide));
 		playerFunctions = player.GetComponent<Pickup_Object> ();
 		flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
+		loadedMagazine = null;
 	}
 
 	public override void carryUpdate(Hand hand)
