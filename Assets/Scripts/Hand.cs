@@ -56,11 +56,16 @@ public class Hand : MonoBehaviour
 				carriedObject = p;
 				carriedObject.GetComponent<Rigidbody>().isKinematic = true;
 				carriedObject.transform.parent = this.gameObject.transform;
-				carriedObject.transform.localPosition = Vector3.zero; 
+				carriedObject.transform.localPosition = new Vector3(carriedObject.handPositionOffset.x, carriedObject.handPositionOffset.y, carriedObject.handPositionOffset.z);
 				carriedObject.transform.localRotation = Quaternion.Euler(carriedObject.handRotationOffset.x, carriedObject.handRotationOffset.y, carriedObject.handRotationOffset.z);
 				carriedObject.GetComponent<Collider>().isTrigger = true;
 
 				pickupframe = true;
+
+				Magazine mag = col.GetComponent<Collider>().gameObject.GetComponent<Magazine>();
+				if(mag != null){
+					mag.attached = Magazine.AttachPoint.Hand;
+				}
 			}
 		}
 	}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Magazine : Pickupable {
 	private string text;
-	enum AttachPoint{
+	public enum AttachPoint{
 		None,
 		Hand,
 		Gun
@@ -20,7 +20,7 @@ public class Magazine : Pickupable {
 
 	bool needsToLerp = false;
 	float speed = 5.0f;
-	AttachPoint attached;
+	public AttachPoint attached;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,7 @@ public class Magazine : Pickupable {
 	// Update is called once per frame
 	void Update () {
 
-		//when C is pressed, cycle through text locations
+		//put magazine in gun or drop magazine
 		if (Input.GetKeyDown (KeyCode.V)) {
 			if (attached == AttachPoint.Hand){
 				needsToLerp = true;
