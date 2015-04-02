@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - RightHand
+  - Target
+  - Pistol
+  - LeftHand
+  - GunSlide
+  - MuzzleFlash
+  - RangePlane
+  - Hydra
+  - FloatingText
+  - Safety
   layers:
   - Default
   - TransparentFX

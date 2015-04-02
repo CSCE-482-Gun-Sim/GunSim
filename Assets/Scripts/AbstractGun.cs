@@ -10,6 +10,9 @@ public abstract class AbstractGun : Pickupable {
 	bool TriggerPulled;
 	ParticleSystem flash;
 	public Magazine loadedMagazine;
+	GameObject safety;
+	bool safetyOn;
+	Color safetyOffColor = new Color(.1f, .1f, .1f);
 
 	// Use this for initialization
 	protected void Start () {
@@ -18,6 +21,9 @@ public abstract class AbstractGun : Pickupable {
 		playerFunctions = player.GetComponent<Pickup_Object> ();
 		flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
 		loadedMagazine = null;
+		safety = GameObject.FindWithTag ("Safety");
+		safety.GetComponent<Renderer>().material.color = safetyOffColor;
+		safetyOn = true;
 	}
 
 	public override void carryUpdate(Hand hand)
@@ -70,6 +76,16 @@ public abstract class AbstractGun : Pickupable {
 				}
 			}
 		}
+
+
+		//SAFETY
+		if (Input.GetKeyDown (KeyCode.C)) {
+			safetyOn = !safetyOn;
+		}
+		if(safetyOn)
+			safety.GetComponent<Renderer>().material.color = safetyOffColor;
+		else
+			safety.GetComponent<Renderer>().material.color = Color.red;
 	}
 
 	void showMuzzleFlash(){
