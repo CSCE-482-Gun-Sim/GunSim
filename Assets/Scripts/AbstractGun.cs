@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+<<<<<<< HEAD
 public abstract class AbstractGun : Pickupable
 {
 		public Vector3 barrel_offset;
@@ -22,6 +23,33 @@ public abstract class AbstractGun : Pickupable
 				flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
 				loadedMagazine = null;
 		}
+=======
+public abstract class AbstractGun : Pickupable {
+	public Vector3 barrel_offset;
+	GameObject player;
+	GunSlide gunSlide;
+	Pickup_Object playerFunctions;
+	public Transform bulletHole;
+	bool TriggerPulled;
+	ParticleSystem flash;
+	public Magazine loadedMagazine;
+	GameObject safety;
+	bool safetyOn;
+	Color safetyOffColor = new Color(.1f, .1f, .1f);
+	public static bool beenLoadedBefore = false;
+
+	// Use this for initialization
+	protected void Start () {
+		player = GameObject.FindWithTag("Player");
+		gunSlide = (GunSlide)GameObject.FindWithTag ("GunSlide").GetComponent(typeof(GunSlide));
+		playerFunctions = player.GetComponent<Pickup_Object> ();
+		flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
+		loadedMagazine = null;
+		safety = GameObject.FindWithTag ("Safety");
+		safety.GetComponent<Renderer>().material.color = safetyOffColor;
+		safetyOn = true;
+	}
+>>>>>>> 13a886f8658131a6cf3b1db879e9a25347ffb6e2
 
 		public override void carryUpdate (Hand hand)
 		{
@@ -73,7 +101,26 @@ public abstract class AbstractGun : Pickupable
 								}
 						}
 				}
+<<<<<<< HEAD
 		Shoot = false;
+=======
+			}
+		}
+
+
+		//SAFETY
+		if (Input.GetKeyDown (KeyCode.C)) {
+			safetyOn = !safetyOn;
+		}
+		if(safetyOn)
+			safety.GetComponent<Renderer>().material.color = safetyOffColor;
+		else
+			safety.GetComponent<Renderer>().material.color = Color.red;
+	}
+
+	void showMuzzleFlash(){
+		flash.Play ();
+>>>>>>> 13a886f8658131a6cf3b1db879e9a25347ffb6e2
 	}
 	
 		void showMuzzleFlash ()
