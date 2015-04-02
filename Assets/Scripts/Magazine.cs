@@ -135,6 +135,7 @@ public class Magazine : Pickupable {
 		//once snapped, set the pistol's magazine to this magazine
 		AbstractGun pistolClass = (AbstractGun)pistol.GetComponent(typeof(AbstractGun));
 		pistolClass.loadedMagazine = this;
+		AbstractGun.beenLoadedBefore = true;
 	}
 
 	//makes object not bounce
