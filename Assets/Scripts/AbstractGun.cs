@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
 public abstract class AbstractGun : Pickupable
 {
 		public Vector3 barrel_offset;
@@ -10,10 +9,14 @@ public abstract class AbstractGun : Pickupable
 		Pickup_Object playerFunctions;
 		public Transform bulletHole;
 		bool TriggerPulled;
-		bool Shoot;
 		ParticleSystem flash;
 		public Magazine loadedMagazine;
-	
+		GameObject safety;
+		bool safetyOn;
+		bool Shoot;
+		Color safetyOffColor = new Color (.1f, .1f, .1f);
+		public static bool beenLoadedBefore = false;
+
 		// Use this for initialization
 		protected void Start ()
 		{
@@ -22,34 +25,10 @@ public abstract class AbstractGun : Pickupable
 				playerFunctions = player.GetComponent<Pickup_Object> ();
 				flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
 				loadedMagazine = null;
+				safety = GameObject.FindWithTag ("Safety");
+				safety.GetComponent<Renderer> ().material.color = safetyOffColor;
+				safetyOn = true;
 		}
-=======
-public abstract class AbstractGun : Pickupable {
-	public Vector3 barrel_offset;
-	GameObject player;
-	GunSlide gunSlide;
-	Pickup_Object playerFunctions;
-	public Transform bulletHole;
-	bool TriggerPulled;
-	ParticleSystem flash;
-	public Magazine loadedMagazine;
-	GameObject safety;
-	bool safetyOn;
-	Color safetyOffColor = new Color(.1f, .1f, .1f);
-	public static bool beenLoadedBefore = false;
-
-	// Use this for initialization
-	protected void Start () {
-		player = GameObject.FindWithTag("Player");
-		gunSlide = (GunSlide)GameObject.FindWithTag ("GunSlide").GetComponent(typeof(GunSlide));
-		playerFunctions = player.GetComponent<Pickup_Object> ();
-		flash = (ParticleSystem)GameObject.FindWithTag ("MuzzleFlash").GetComponent (typeof(ParticleSystem));
-		loadedMagazine = null;
-		safety = GameObject.FindWithTag ("Safety");
-		safety.GetComponent<Renderer>().material.color = safetyOffColor;
-		safetyOn = true;
-	}
->>>>>>> 13a886f8658131a6cf3b1db879e9a25347ffb6e2
 
 		public override void carryUpdate (Hand hand)
 		{
@@ -59,8 +38,8 @@ public abstract class AbstractGun : Pickupable {
 
 				if (hand.rightHand) {
 						if (SixenseInput.Controllers [1].Trigger > .8) {
-								if(!TriggerPulled)
-									Shoot = true;
+								if (!TriggerPulled)
+										Shoot = true;
 								TriggerPulled = true;
 						} else {
 								TriggerPulled = false;
@@ -68,8 +47,8 @@ public abstract class AbstractGun : Pickupable {
 				}
 				if (!hand.rightHand) {
 						if (SixenseInput.Controllers [0].Trigger > .8) {
-				if(!TriggerPulled)
-					Shoot = true;
+								if (!TriggerPulled)
+										Shoot = true;
 								TriggerPulled = true;
 						} else {
 								TriggerPulled = false;
@@ -101,28 +80,19 @@ public abstract class AbstractGun : Pickupable {
 								}
 						}
 				}
-<<<<<<< HEAD
-		Shoot = false;
-=======
-			}
+				Shoot = false;
+
+
+				//SAFETY
+				if (Input.GetKeyDown (KeyCode.C)) {
+						safetyOn = !safetyOn;
+				}
+				if (safetyOn)
+						safety.GetComponent<Renderer> ().material.color = safetyOffColor;
+				else
+						safety.GetComponent<Renderer> ().material.color = Color.red;
 		}
 
-
-		//SAFETY
-		if (Input.GetKeyDown (KeyCode.C)) {
-			safetyOn = !safetyOn;
-		}
-		if(safetyOn)
-			safety.GetComponent<Renderer>().material.color = safetyOffColor;
-		else
-			safety.GetComponent<Renderer>().material.color = Color.red;
-	}
-
-	void showMuzzleFlash(){
-		flash.Play ();
->>>>>>> 13a886f8658131a6cf3b1db879e9a25347ffb6e2
-	}
-	
 		void showMuzzleFlash ()
 		{
 				flash.Play ();
