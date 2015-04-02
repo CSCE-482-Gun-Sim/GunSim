@@ -11,6 +11,7 @@ public class Magazine : Pickupable {
 	Hand rightHand;
 	Hand leftHand;
 	GameObject pistol;
+	public int ammo;
 
 	public Vector3 handRotation;
 	public Vector3 pistolRotation;
@@ -29,6 +30,7 @@ public class Magazine : Pickupable {
 		rightHand = (Hand)GameObject.FindWithTag ("RightHand").GetComponent<Hand> ();
 		leftHand = (Hand)GameObject.FindWithTag ("LeftHand").GetComponent<Hand> ();
 		pistol = GameObject.FindGameObjectWithTag ("Pistol");
+		ammo = 10;
 	}
 
 	// Update is called once per frame
@@ -51,6 +53,10 @@ public class Magazine : Pickupable {
 				attached = AttachPoint.None;
 				this.GetComponent<Rigidbody>().isKinematic = false;
 				this.transform.parent = null;
+
+				//pistol no longer has magazine
+				AbstractGun pistolClass = (AbstractGun)pistol.GetComponent(typeof(AbstractGun));
+				pistolClass.loadedMagazine = null;
 			} //else {
 				//needsToLerp = true;
 				//attached = AttachPoint.Hand;
@@ -125,6 +131,10 @@ public class Magazine : Pickupable {
 				this.transform.localPosition = positionCorrection;
 			}
 		}
+
+		//once snapped, set the pistol's magazine to this magazine
+		AbstractGun pistolClass = (AbstractGun)pistol.GetComponent(typeof(AbstractGun));
+		pistolClass.loadedMagazine = this;
 	}
 
 	//makes object not bounce

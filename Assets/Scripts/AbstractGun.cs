@@ -9,7 +9,7 @@ public abstract class AbstractGun : Pickupable {
 	public Transform bulletHole;
 	bool TriggerPulled;
 	ParticleSystem flash;
-	GameObject loadedMagazine;
+	public Magazine loadedMagazine;
 
 	// Use this for initialization
 	protected void Start () {
@@ -42,33 +42,34 @@ public abstract class AbstractGun : Pickupable {
 						}
 				}
 
-
-
-		if(((hand.rightHand && (Input.GetMouseButtonDown(0)|| RightTrigger)) || (!hand.rightHand && (Input.GetMouseButtonDown(1) ||LeftTrigger))))
-		{
-			TriggerPulled = true;
-			//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
-			gunSlide.slideAction();
-			GetComponent<AudioSource>().Play ();
-			showMuzzleFlash();
-			Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ -this.transform.right;
-			Ray gunDirection = new Ray(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
-			LayerMask layerMask = 1 << 1; //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
-			RaycastHit hit;
-
-			if(Physics.Raycast (gunDirection, out hit, layerMask))
+		if (loadedMagazine != null && loadedMagazine.ammo > 0) {
+			if(((hand.rightHand && (Input.GetMouseButtonDown(0)|| RightTrigger)) || (!hand.rightHand && (Input.GetMouseButtonDown(1) ||LeftTrigger))))
+			{
+				loadedMagazine.ammo--;
+				TriggerPulled = true;
+				//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
+				gunSlide.slideAction();
+				GetComponent<AudioSource>().Play ();
+				showMuzzleFlash();
+				Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ -this.transform.right;
+				Ray gunDirection = new Ray(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
+				LayerMask layerMask = 1 << 1; //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
+				RaycastHit hit;
+				
+				if(Physics.Raycast (gunDirection, out hit, layerMask))
 				{
-				Debug.DrawRay(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection (barrel_offset)*/, fwd * 10, Color.green, 100);
+					Debug.DrawRay(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection (barrel_offset)*/, fwd * 10, Color.green, 100);
 					
 					if(hit.collider.gameObject.tag == "Target")
 					{	
 						Debug.Log("HIT");
 						Quaternion bulletHoleRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 						Instantiate(bulletHole, hit.point, bulletHoleRotation);
-
+						
 					}
 				}
 			}
+		}
 	}
 
 	void showMuzzleFlash(){
