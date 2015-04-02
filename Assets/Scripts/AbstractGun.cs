@@ -13,7 +13,6 @@ public abstract class AbstractGun : Pickupable {
 	GameObject safety;
 	bool safetyOn;
 	Color safetyOffColor = new Color(.1f, .1f, .1f);
-	public static bool beenLoadedBefore = false;
 
 	// Use this for initialization
 	protected void Start () {

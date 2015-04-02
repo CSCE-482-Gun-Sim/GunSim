@@ -135,7 +135,6 @@ public class Magazine : Pickupable {
 		//once snapped, set the pistol's magazine to this magazine
 		AbstractGun pistolClass = (AbstractGun)pistol.GetComponent(typeof(AbstractGun));
 		pistolClass.loadedMagazine = this;
-		AbstractGun.beenLoadedBefore = true;
 	}
 
 	//makes object not bounce
@@ -152,5 +151,14 @@ public class Magazine : Pickupable {
 			
 		}
 		
+	}
+
+	public void checkFirstCheckpointComplete(){
+		if ((rightHand.carriedObject.GetType () == typeof(Pistol) && 
+			leftHand.carriedObject.GetType () == typeof(Magazine)) || 
+			(leftHand.carriedObject.GetType () == typeof(Pistol) && 
+			rightHand.carriedObject.GetType () == typeof(Magazine))) {
+			ScreenText.dontShowFirstMessage = true;
+		}
 	}
 }

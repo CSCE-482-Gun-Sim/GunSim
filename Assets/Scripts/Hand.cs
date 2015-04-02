@@ -66,6 +66,8 @@ public class Hand : MonoBehaviour
 				if(mag != null){
 					mag.attached = Magazine.AttachPoint.Hand;
 				}
+
+				mag.checkFirstCheckpointComplete();
 			}
 		}
 	}
