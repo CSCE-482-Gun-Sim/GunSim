@@ -65,9 +65,11 @@ public class Hand : MonoBehaviour
 				Magazine mag = col.GetComponent<Collider>().gameObject.GetComponent<Magazine>();
 				if(mag != null){
 					mag.attached = Magazine.AttachPoint.Hand;
+					mag.checkFirstCheckpointComplete();
+				} else {	//if didn't just pick up a magazine
+					Magazine mag2 = GameObject.FindWithTag("Magazine").GetComponent<Magazine>();
+					mag2.checkFirstCheckpointComplete();
 				}
-
-				mag.checkFirstCheckpointComplete();
 			}
 		}
 	}
