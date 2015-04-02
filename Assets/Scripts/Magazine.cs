@@ -8,7 +8,8 @@ public class Magazine : Pickupable {
 		Hand,
 		Gun
 	};
-	GameObject hand;
+	Hand rightHand;
+	Hand leftHand;
 	GameObject pistol;
 
 	public Vector3 handRotation;
@@ -25,20 +26,27 @@ public class Magazine : Pickupable {
 	// Use this for initialization
 	void Start () {
 		attached = AttachPoint.None;	
-		hand = GameObject.FindGameObjectWithTag ("LeftHand");
+		rightHand = (Hand)GameObject.FindWithTag ("RightHand").GetComponent<Hand> ();
+		leftHand = (Hand)GameObject.FindWithTag ("LeftHand").GetComponent<Hand> ();
 		pistol = GameObject.FindGameObjectWithTag ("Pistol");
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		Hand rightHand = (Hand)GameObject.FindWithTag ("RightHand").GetComponent<Hand> ();
 		//put magazine in gun or drop magazine
 		if (Input.GetKeyDown (KeyCode.V)) {
-			if (attached == AttachPoint.Hand && rightHand.carriedObject != null){
-				needsToLerp = true;
-				attached = AttachPoint.Gun;
-				this.GetComponent<Rigidbody>().isKinematic = true;
+			//only load if gun is in hand
+			//&& rightHand.carriedObject.GetType() == typeof(Pistol)
+			Debug.Log("type: " + (rightHand.carriedObject.GetType() == typeof(Pistol)));
+ 			if (attached == AttachPoint.Hand){
+				//only put magazine in gun if gun is attached
+				if ((rightHand.carriedObject != null && rightHand.carriedObject.GetType() == typeof(Pistol)) ||
+				    (leftHand.carriedObject != null && leftHand.carriedObject.GetType() == typeof(Pistol))) {
+					needsToLerp = true;
+					attached = AttachPoint.Gun;
+					this.GetComponent<Rigidbody>().isKinematic = true;
+				}
 			} else if (attached == AttachPoint.Gun){
 				attached = AttachPoint.None;
 				this.GetComponent<Rigidbody>().isKinematic = false;
@@ -51,9 +59,10 @@ public class Magazine : Pickupable {
 		}
 
 		Transform snapTransform = null;
-		if (attached == AttachPoint.Hand) {
+		/*if (attached == AttachPoint.Hand) {
 			snapTransform = hand.transform;
-		} else if (attached == AttachPoint.Gun) {
+		} else */
+		if (attached == AttachPoint.Gun) {
 			snapTransform = pistol.transform;
 		}
 
@@ -99,10 +108,11 @@ public class Magazine : Pickupable {
 
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			Vector3 rotationVec = Vector3.zero;
-			if (attached == AttachPoint.Hand) {
+			/*if (attached == AttachPoint.Hand) {
 				rotationVec = handRotation;
 				this.transform.parent = hand.transform;
-			} else if (attached == AttachPoint.Gun) {
+			} else */
+			if (attached == AttachPoint.Gun) {
 				rotationVec = pistolRotation;
 				this.transform.parent = pistol.transform;
 			}

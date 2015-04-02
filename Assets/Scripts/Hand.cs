@@ -43,7 +43,7 @@ public class Hand : MonoBehaviour
 		bool LeftBumper = SixenseInput.Controllers[0].GetButton(SixenseButtons.BUMPER);
 		bool RightBumper = SixenseInput.Controllers[1].GetButton(SixenseButtons.BUMPER);
 
-		Debug.Log ("right hand: " + rightHand + " pressing Q: " + Input.GetKeyDown (KeyCode.Q) + " carrying: " + carrying);
+		//.Log ("right hand: " + rightHand + " pressing Q: " + Input.GetKeyDown (KeyCode.Q) + " carrying: " + carrying);
 
 		if (((rightHand && (Input.GetKeyDown(KeyCode.E)||RightBumper)) || (!rightHand && (Input.GetKeyDown(KeyCode.Q)||LeftBumper))) && !carrying)
 		{
