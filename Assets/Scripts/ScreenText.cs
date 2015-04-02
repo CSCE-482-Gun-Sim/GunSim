@@ -23,7 +23,7 @@ public class ScreenText : MonoBehaviour {
 		if (warning == Warning.None) {
 			warningString = "";
 		} else if (warning == Warning.PointDownRange) {
-			warningString = "Please point the gun down range.";
+			warningString = "Please keep the gun pointed down range.";
 		}
 		GUI.Label(new Rect(Screen.width/2.0f,Screen.height/2.0f,Screen.width,Screen.height),warningString);
 	}

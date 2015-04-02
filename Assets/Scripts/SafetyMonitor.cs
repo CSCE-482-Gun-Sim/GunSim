@@ -4,13 +4,12 @@ using System.Collections;
 public class SafetyMonitor : MonoBehaviour {
 	GameObject player;
 	FloatingText text;
+	AbstractGun pistol;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindWithTag("Player");
-
-		//Debug.Log(player.transform.position);
-		
-	
+		pistol = (AbstractGun)GameObject.FindGameObjectWithTag ("Pistol").GetComponent(typeof(AbstractGun));
 	}
 	
 	// Update is called once per frame
@@ -57,8 +56,9 @@ public class SafetyMonitor : MonoBehaviour {
 		
 		RaycastHit hit;
 		if (Physics.Raycast (gunDirection, out hit, layerMask)) {	//Debug.Log(hit.collider.gameObject.tag);
-			if (hit.collider.gameObject.tag != "RangePlane") {//Might want to use collider filters so that you dont get bugs when shooting	
-				//ScreenText text = GameObject.FindWithTag ("MainCamera").GetComponent(typeof(ScreenText));
+			if (hit.collider.gameObject.tag != "RangePlane" &&
+			    pistol.loadedMagazine != null) {//Might want to use collider filters so that you dont get bugs when shooting	
+
 				ScreenText.warning = ScreenText.Warning.PointDownRange;
 			} else {
 				ScreenText.warning = ScreenText.Warning.None;
