@@ -10,7 +10,8 @@ public class ScreenText : MonoBehaviour {
 		LongSafetyMessage,
 		FireMessage,
 		LoadTheWeapon,
-		LoadAMagazine
+		LoadAMagazine,
+		EmptyClip
 	};
 	public static Warning warning;
 	public static bool dontShowFirstMessage = false;
@@ -50,6 +51,8 @@ public class ScreenText : MonoBehaviour {
 			warningString = "Hold the magazine under the pistol to load the weapon.";
 		} else if (warning == Warning.LoadAMagazine) {
 			warningString = "First load the gun with a magazine by picking one up and holding the magazine under the gun.";
+		} else if (warning == Warning.EmptyClip) {
+			warningString = "Your magazine is empty. Press the right primary button to drop the magazine, then pick up another one and load it in the pistol.";
 		} 
 
 		var centeredStyle = GUI.skin.GetStyle("Label");
