@@ -56,7 +56,7 @@ public abstract class AbstractGun : Pickupable
 
 				if (loadedMagazine != null && loadedMagazine.ammo > 0 && Shoot) {
 						if (!safetyOn) {
-								ScreenText.warning = ScreenText.Warning.None;
+								//ScreenText.warning = ScreenText.Warning.None;
 								loadedMagazine.ammo--;
 								//TriggerPulled = true;
 								//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
@@ -84,6 +84,7 @@ public abstract class AbstractGun : Pickupable
 								i++;
 								}
 						} else {
+							Debug.Log("testsetsetsetsgtsetassdfasdfljkas;ldfjk;lkdjsfl;ksjdflk");
 							ScreenText.warning = ScreenText.Warning.ShortSafetyMessage;
 						}
 				}
@@ -95,9 +96,12 @@ public abstract class AbstractGun : Pickupable
 						safetyOn = !safetyOn;
 				}
 				if (safetyOn)
-						safety.GetComponent<Renderer> ().material.color = safetyOffColor;
-				else
-						safety.GetComponent<Renderer> ().material.color = Color.red;
+					safety.GetComponent<Renderer> ().material.color = safetyOffColor;
+				else {
+					safety.GetComponent<Renderer> ().material.color = Color.red;
+					if(ScreenText.warning == ScreenText.Warning.ShortSafetyMessage)
+						ScreenText.warning = ScreenText.Warning.None;
+				}
 		}
 
 		void showMuzzleFlash ()

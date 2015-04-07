@@ -42,7 +42,7 @@ public class SafetyMonitor : MonoBehaviour {
 			checkPointingDownRange(lGun);
 		}
 		if(rGun == null && lGun == null && ScreenText.dontShowFirstMessage){
-			ScreenText.warning = ScreenText.Warning.None;
+			//ScreenText.warning = ScreenText.Warning.None;
 		}
 
 	}
@@ -61,7 +61,7 @@ public class SafetyMonitor : MonoBehaviour {
 			    pistol.loadedMagazine != null) {//Might want to use collider filters so that you dont get bugs when shooting	
 
 				ScreenText.warning = ScreenText.Warning.PointDownRange;
-			} else if (ScreenText.dontShowFirstMessage){
+			} else if (ScreenText.dontShowFirstMessage && ScreenText.warning == ScreenText.Warning.PointDownRange){
 				ScreenText.warning = ScreenText.Warning.None;
 			}
 		}
