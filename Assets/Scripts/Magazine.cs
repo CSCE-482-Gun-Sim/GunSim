@@ -51,6 +51,11 @@ public class Magazine : Pickupable {
 					needsToLerp = true;
 					attached = AttachPoint.Gun;
 					this.GetComponent<Rigidbody>().isKinematic = true;
+
+					if(leftHand.carriedObject.GetType() == typeof(Magazine))
+						leftHand.carriedObject = null;
+					else if (rightHand.carriedObject.GetType() == typeof(Magazine))
+						rightHand.carriedObject = null;
 				}
 			} else if (attached == AttachPoint.Gun){
 				attached = AttachPoint.None;
