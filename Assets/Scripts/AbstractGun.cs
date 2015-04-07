@@ -36,7 +36,7 @@ public abstract class AbstractGun : Pickupable
 	
 
 				if (hand.rightHand) {
-						if (SixenseInput.Controllers [1].Trigger > .8) {
+						if ((SixenseInput.Controllers [1].Trigger > .8) || Input.GetMouseButton(0)) {
 								if (!TriggerPulled)
 										Shoot = true;
 								TriggerPulled = true;
@@ -57,25 +57,30 @@ public abstract class AbstractGun : Pickupable
 				if (loadedMagazine != null && loadedMagazine.ammo > 0) {
 						if (Shoot) {
 								loadedMagazine.ammo--;
-								TriggerPulled = true;
+								//TriggerPulled = true;
 								//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 								gunSlide.slideAction ();
 								GetComponent<AudioSource> ().Play ();
 								showMuzzleFlash ();
 								Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ -this.transform.right;
 								Ray gunDirection = new Ray (this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
-								LayerMask layerMask = 1 << 1; //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
-								RaycastHit hit;
-				
-								if (Physics.Raycast (gunDirection, out hit, layerMask)) {
-										Debug.DrawRay (this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection (barrel_offset)*/, fwd * 10, Color.green, 100);
+								LayerMask layerMask = 1 << LayerMask.NameToLayer("SafetyLayer"); //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
+								
+								Debug.DrawRay (this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection (barrel_offset)*/, fwd * 10, Color.green, 100);
+
+								int i = 0;
+								RaycastHit[] hits;
+								hits = Physics.RaycastAll(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd, 50);
+								while(i < hits.Length) {
+										
 					
-										if (hit.collider.gameObject.tag == "Target") {	
+										if (hits[i].collider.gameObject.tag == "Target") {	
 												Debug.Log ("HIT");
-												Quaternion bulletHoleRotation = Quaternion.FromToRotation (Vector3.up, hit.normal);
-												Instantiate (bulletHole, hit.point, bulletHoleRotation);
+												Quaternion bulletHoleRotation = Quaternion.FromToRotation (Vector3.up, hits[i].normal);
+												Instantiate (bulletHole, hits[i].point, bulletHoleRotation);
 						
 										}
+								i++;
 								}
 						}
 				}
