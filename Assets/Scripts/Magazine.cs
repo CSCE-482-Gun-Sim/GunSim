@@ -38,6 +38,9 @@ public class Magazine : Pickupable {
 
 		//put magazine in gun or drop magazine
 		if (Input.GetKeyDown (KeyCode.V)) {
+			if(ScreenText.warning == ScreenText.Warning.LoadTheWeapon)
+				ScreenText.warning = ScreenText.Warning.LongSafetyMessage;
+
 			//only load if gun is in hand
 			//&& rightHand.carriedObject.GetType() == typeof(Pistol)
 			Debug.Log("type: " + (rightHand.carriedObject.GetType() == typeof(Pistol)));
@@ -159,6 +162,7 @@ public class Magazine : Pickupable {
 			(leftHand.carriedObject.GetType () == typeof(Pistol) && 
 			rightHand.carriedObject.GetType () == typeof(Magazine))) {
 			ScreenText.dontShowFirstMessage = true;
+			ScreenText.warning = ScreenText.Warning.LoadTheWeapon;
 		}
 	}
 }
