@@ -50,7 +50,7 @@ public class SafetyMonitor : MonoBehaviour {
 	void checkPointingDownRange(AbstractGun gun){
 
 		Ray gunDirection = new Ray (gun.gameObject.transform.position + gun.gameObject.transform.TransformDirection (gun.barrel_offset), 
-		                            -gun.gameObject.transform.right * 50);
+		                            -gun.gameObject.transform.right * 10000);
 		
 		LayerMask layerMask = 1 << 8; //This ignores every layer except the SafetyMonitor layer, meaning the raycast will only be able to collide with the Range Plane or other Safety Layer Colliders
 		

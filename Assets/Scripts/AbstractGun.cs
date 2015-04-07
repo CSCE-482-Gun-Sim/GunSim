@@ -45,7 +45,7 @@ public abstract class AbstractGun : Pickupable
 						}
 				}
 				if (!hand.rightHand) {
-						if (SixenseInput.Controllers [0].Trigger > .8) {
+						if ((SixenseInput.Controllers [0].Trigger > .8)  || Input.GetMouseButton(1)){
 								if (!TriggerPulled)
 										Shoot = true;
 								TriggerPulled = true;
@@ -55,22 +55,22 @@ public abstract class AbstractGun : Pickupable
 				}
 
 				if (loadedMagazine != null && loadedMagazine.ammo > 0) {
-						if (Shoot) {
+						if (Shoot && !safetyOn) {
 								loadedMagazine.ammo--;
 								//TriggerPulled = true;
 								//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 								gunSlide.slideAction ();
 								GetComponent<AudioSource> ().Play ();
 								showMuzzleFlash ();
-								Vector3 fwd = /*Quaternion.Euler (this.handRotationOffset) * */ -this.transform.right;
-								Ray gunDirection = new Ray (this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd * 50);
+								Vector3 fwd =  -this.transform.right;
+								Ray gunDirection = new Ray (this.gameObject.transform.position, fwd * 50);
 								LayerMask layerMask = 1 << LayerMask.NameToLayer("SafetyLayer"); //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
 								
-								Debug.DrawRay (this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection (barrel_offset)*/, fwd * 10, Color.green, 100);
+								Debug.DrawRay (this.gameObject.transform.position, fwd * 10, Color.green, 100);
 
 								int i = 0;
 								RaycastHit[] hits;
-								hits = Physics.RaycastAll(this.gameObject.transform.position /*+ this.gameObject.transform.TransformDirection(barrel_offset)*/, fwd, 50);
+								hits = Physics.RaycastAll(this.gameObject.transform.position, fwd, 50);
 								while(i < hits.Length) {
 										
 					
