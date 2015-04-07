@@ -89,6 +89,8 @@ public abstract class AbstractGun : Pickupable
 						} else {
 							ScreenText.warning = ScreenText.Warning.ShortSafetyMessage;
 						}
+				} else if (loadedMagazine == null && Shoot){
+					ScreenText.warning = ScreenText.Warning.LoadAMagazine;
 				}
 				Shoot = false;
 

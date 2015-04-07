@@ -9,7 +9,8 @@ public class ScreenText : MonoBehaviour {
 		ShortSafetyMessage,
 		LongSafetyMessage,
 		FireMessage,
-		LoadTheWeapon
+		LoadTheWeapon,
+		LoadAMagazine
 	};
 	public static Warning warning;
 	public static bool dontShowFirstMessage = false;
@@ -47,6 +48,8 @@ public class ScreenText : MonoBehaviour {
 			warningString = "With your gun-carrying hand, pull the trigger to fire the pistol.";
 		} else if (warning == Warning.LoadTheWeapon) {
 			warningString = "Hold the magazine under the pistol to load the weapon.";
+		} else if (warning == Warning.LoadAMagazine) {
+			warningString = "First load the gun with a magazine by picking one up and holding the magazine under the gun.";
 		} 
 
 		var centeredStyle = GUI.skin.GetStyle("Label");
