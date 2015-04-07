@@ -5,7 +5,8 @@ public class ScreenText : MonoBehaviour {
 	public enum Warning{
 		None,
 		PointDownRange,
-		PlayerEntered
+		PlayerEntered,
+		ShortSafetyMessage
 	};
 	public static Warning warning;
 	public static bool dontShowFirstMessage = false;
@@ -33,6 +34,8 @@ public class ScreenText : MonoBehaviour {
 			warningString = "Please keep the gun pointed down range.";
 		} else if (warning == Warning.PlayerEntered) {
 			warningString = "Place a hand near an object to pick it up. Pick up a pistol with one hand and a magazine with another.";
+		} else if (warning == Warning.PlayerEntered) {
+			warningString = "Turn off the safety before firing by placing your hand next to the gun.";
 		} 
 
 		var centeredStyle = GUI.skin.GetStyle("Label");

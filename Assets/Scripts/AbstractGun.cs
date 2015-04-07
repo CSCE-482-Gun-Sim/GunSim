@@ -54,8 +54,9 @@ public abstract class AbstractGun : Pickupable
 						}
 				}
 
-				if (loadedMagazine != null && loadedMagazine.ammo > 0) {
-						if (Shoot && !safetyOn) {
+				if (loadedMagazine != null && loadedMagazine.ammo > 0 && Shoot) {
+						if (!safetyOn) {
+								ScreenText.warning = ScreenText.Warning.None;
 								loadedMagazine.ammo--;
 								//TriggerPulled = true;
 								//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
@@ -66,7 +67,7 @@ public abstract class AbstractGun : Pickupable
 								Ray gunDirection = new Ray (this.gameObject.transform.position, fwd * 50);
 								LayerMask layerMask = 1 << LayerMask.NameToLayer("SafetyLayer"); //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
 								
-								Debug.DrawRay (this.gameObject.transform.position, fwd * 10, Color.green, 100);
+								//Debug.DrawRay (this.gameObject.transform.position, fwd * 10, Color.green, 100);
 
 								int i = 0;
 								RaycastHit[] hits;
@@ -82,6 +83,8 @@ public abstract class AbstractGun : Pickupable
 										}
 								i++;
 								}
+						} else {
+							ScreenText.warning = ScreenText.Warning.ShortSafetyMessage;
 						}
 				}
 				Shoot = false;
