@@ -29,30 +29,33 @@ public class FloatingText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		this.transform.LookAt (Camera.main.transform);
+		this.transform.Rotate (new Vector3 (0, 180, 0));
 		
 		//when C is pressed, cycle through text locations
-		/*if (Input.GetKeyDown (KeyCode.C)) {
+		if (Input.GetKeyDown (KeyCode.T)) {
 			if (attached == AttachPoint.Camera){
 				attached = AttachPoint.Gun;
 			} else if (attached == AttachPoint.Gun){
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 			} else {
 				attached = AttachPoint.Camera;
-				this.gameObject.renderer.enabled = true;
+				this.gameObject.GetComponent<Renderer>().enabled = true;
 			}
 			startTime = Time.time;
-		}*/
+		}
 		
-		/*if(attached == AttachPoint.Camera) {
+		if(attached == AttachPoint.Camera) {
 			this.GetComponent<TextMesh> ().text = "Press C to snap to Gun";
-			this.gameObject.renderer.enabled = true;
+			this.gameObject.GetComponent<Renderer>().enabled = true;
 		} else if(attached == AttachPoint.Gun) {
 			this.GetComponent<TextMesh> ().text = "Press C to dismiss";
-			this.gameObject.renderer.enabled = true;
+			this.gameObject.GetComponent<Renderer>().enabled = true;
 		} else {
 			this.GetComponent<TextMesh> ().text = "";
-			this.gameObject.renderer.enabled = false;
-		}*/
+			this.gameObject.GetComponent<Renderer>().enabled = false;
+		}
 		
 		//snap to object
 		if (this.gameObject.GetComponent<Renderer>().enabled) {
