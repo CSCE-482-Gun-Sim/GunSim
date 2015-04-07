@@ -400,7 +400,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 175317502}
   m_LocalRotation: {x: .0417110324, y: .0603970997, z: .997299433, w: -.00252619386}
-  m_LocalPosition: {x: 40.6459122, y: -.539127111, z: -11.9805307}
+  m_LocalPosition: {x: 40.7859993, y: -.538999975, z: -11.9809999}
   m_LocalScale: {x: .0700000003, y: .0700000003, z: .0700000003}
   m_Children:
   - {fileID: 1602427088}
@@ -911,6 +911,14 @@ Prefab:
       propertyPath: m_Name
       value: Magazine 1
       objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 39.9350014
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
   m_IsPrefabParent: 0
@@ -1326,6 +1334,14 @@ Prefab:
     - target: {fileID: 162856, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
       propertyPath: m_Name
       value: Magazine 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 40.0559998
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
@@ -2839,6 +2855,14 @@ Prefab:
       propertyPath: m_Name
       value: Magazine 2
       objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 40.1780014
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
   m_IsPrefabParent: 0
@@ -3029,6 +3053,14 @@ Prefab:
       propertyPath: m_Name
       value: Magazine 5
       objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 41.8740005
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
   m_IsPrefabParent: 0
@@ -3205,6 +3237,14 @@ Prefab:
     - target: {fileID: 469424, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 41.7700005
+      objectReference: {fileID: 0}
+    - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
