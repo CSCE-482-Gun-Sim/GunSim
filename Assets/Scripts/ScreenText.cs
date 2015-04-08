@@ -34,7 +34,7 @@ public class ScreenText : MonoBehaviour {
 			warning = Warning.None;
 		}
 
-		Debug.Log ("Safety state: " + warning);
+		//Debug.Log ("Safety state: " + warning);
 		string warningString = "";
 		if (warning == Warning.None) {
 			warningString = "";

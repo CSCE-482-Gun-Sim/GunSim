@@ -28,7 +28,7 @@ public class FloatingText : MonoBehaviour {
 	void Update () {
 
 		this.transform.LookAt (Camera.main.transform);
-		this.transform.Rotate (new Vector3 (0, 180, 0));
+		//this.transform.Rotate (new Vector3 (0, 180, 0));
 		
 		//when C is pressed, cycle through text locations
 		if (Input.GetKeyDown (KeyCode.T)) {

@@ -19,6 +19,7 @@ TagManager:
   - HammerPoint
   - SideOfGunPoint
   - SlidePoint
+  - PistolPart
   layers:
   - Default
   - TransparentFX

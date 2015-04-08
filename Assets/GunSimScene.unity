@@ -322,7 +322,7 @@ GameObject:
   - 23: {fileID: 117575956}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,7 +385,7 @@ GameObject:
   - 23: {fileID: 137221507}
   m_Layer: 0
   m_Name: SideOfGunPoint
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1141,7 +1141,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 12b10f08ea4130c44a4b80644c707b73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -.211999997
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 12b10f08ea4130c44a4b80644c707b73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1149,7 +1149,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 12b10f08ea4130c44a4b80644c707b73, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.64899993
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 12b10f08ea4130c44a4b80644c707b73, type: 3}
       propertyPath: m_Name
@@ -1260,7 +1260,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 714372330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.317000002, y: -.416000009, z: .600000024}
   m_LocalScale: {x: .5, y: .5, z: .49999997}
   m_Children: []
   m_Father: {fileID: 1773221420}
@@ -1304,7 +1304,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 497152, guid: a28c117b111c25440877ed666c78762b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 43.4659996
+      value: 43.4599991
       objectReference: {fileID: 0}
     - target: {fileID: 497152, guid: a28c117b111c25440877ed666c78762b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1312,7 +1312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497152, guid: a28c117b111c25440877ed666c78762b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -9.78499985
+      value: -9.98200035
       objectReference: {fileID: 0}
     - target: {fileID: 497152, guid: a28c117b111c25440877ed666c78762b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1332,7 +1332,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497152, guid: a28c117b111c25440877ed666c78762b, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 197152, guid: a28c117b111c25440877ed666c78762b, type: 2}
       propertyPath: m_Name
@@ -1527,7 +1527,7 @@ GameObject:
   - 23: {fileID: 1189905153}
   m_Layer: 0
   m_Name: SlidePoint
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1599,7 +1599,7 @@ GameObject:
   - 23: {fileID: 1242984554}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1749,7 +1749,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1254484789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.356999993, y: -.418000013, z: .375}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 1706050901}
@@ -1767,7 +1767,7 @@ GameObject:
   - 114: {fileID: 1262396678}
   m_Layer: 0
   m_Name: Slide
-  m_TagString: GunSlide
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1840,7 +1840,7 @@ GameObject:
   - 23: {fileID: 1307645217}
   m_Layer: 0
   m_Name: Main
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3124,7 @@ GameObject:
   - 23: {fileID: 1561028693}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3186,7 +3186,7 @@ GameObject:
   - 23: {fileID: 1602427089}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3316,8 +3316,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1656038091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.9020004, y: -1.53999996, z: -11.5089998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 40.9020004, y: -1.71099997, z: -11.5089998}
+  m_LocalScale: {x: 1, y: .144897491, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -3474,7 +3474,7 @@ GameObject:
   - 23: {fileID: 1786502516}
   m_Layer: 0
   m_Name: HammerPoint
-  m_TagString: Untagged
+  m_TagString: PistolPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
