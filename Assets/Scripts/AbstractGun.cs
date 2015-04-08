@@ -67,14 +67,14 @@ public abstract class AbstractGun : Pickupable
 								GetComponent<AudioSource> ().Play ();
 								showMuzzleFlash ();
 								Vector3 fwd =  -this.transform.right;
-								Ray gunDirection = new Ray (this.gameObject.transform.position, fwd * 50);
+								Ray gunDirection = new Ray (GameObject.Find("MuzzlePoint").transform.position, fwd * 50);
 								LayerMask layerMask = 1 << LayerMask.NameToLayer("SafetyLayer"); //This ignores the SafetyMonitor, meaning the raycast will ignore the range plane when shooting
 								
-								//Debug.DrawRay (this.gameObject.transform.position, fwd * 10, Color.green, 100);
+								Debug.DrawRay (GameObject.Find("MuzzlePoint").transform.position, fwd * 100, Color.green, 100);
 
 								int i = 0;
 								RaycastHit[] hits;
-								hits = Physics.RaycastAll(this.gameObject.transform.position, fwd, 50);
+								hits = Physics.RaycastAll(GameObject.Find("MuzzlePoint").transform.position, fwd, 50);
 								while(i < hits.Length) {
 										
 					
@@ -84,7 +84,7 @@ public abstract class AbstractGun : Pickupable
 												Instantiate (bulletHole, hits[i].point, bulletHoleRotation);
 						
 										}
-								i++;
+										i++;
 								}
 						} else {
 							ScreenText.warning = ScreenText.Warning.ShortSafetyMessage;

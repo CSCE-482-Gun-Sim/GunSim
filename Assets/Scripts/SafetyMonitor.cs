@@ -51,7 +51,7 @@ public class SafetyMonitor : MonoBehaviour {
 
 		Ray gunDirection = new Ray (gun.gameObject.transform.position /*+ gun.gameObject.transform.TransformDirection (gun.barrel_offset)*/, 
 		                            -gun.gameObject.transform.right * 10000);
-		Debug.DrawRay (gun.gameObject.transform.position, -gun.gameObject.transform.right * 10000, Color.green, 100);
+		//Debug.DrawRay (gun.gameObject.transform.position, -gun.gameObject.transform.right * 10000, Color.green, 100);
 		
 		LayerMask layerMask = 1 << 8; //This ignores every layer except the SafetyMonitor layer, meaning the raycast will only be able to collide with the Range Plane or other Safety Layer Colliders
 
