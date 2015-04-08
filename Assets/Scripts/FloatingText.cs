@@ -27,8 +27,6 @@ public class FloatingText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		this.transform.rotation = Quaternion.LookRotation(this.transform.position - Camera.main.transform.position);
-
 		//when C is pressed, cycle through text locations
 		if (Input.GetKeyDown (KeyCode.T)) {
 			if (attached == AttachPoint.None){
@@ -70,5 +68,8 @@ public class FloatingText : MonoBehaviour {
 		else {
 			//Debug.Log ("Attaching to: (none)");
 		}
+
+		//rotate to player
+		this.transform.rotation = Quaternion.LookRotation(this.transform.position - GameObject.FindGameObjectWithTag("FloatingTextFollower").transform.position);
 	}
 }
