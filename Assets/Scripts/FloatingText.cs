@@ -27,9 +27,8 @@ public class FloatingText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		this.transform.LookAt (Camera.main.transform);
-		//this.transform.Rotate (new Vector3 (0, 180, 0));
-		
+		this.transform.rotation = Quaternion.LookRotation(this.transform.position - Camera.main.transform.position);
+
 		//when C is pressed, cycle through text locations
 		if (Input.GetKeyDown (KeyCode.T)) {
 			if (attached == AttachPoint.None){
