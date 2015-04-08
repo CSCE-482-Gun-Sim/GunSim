@@ -89,5 +89,12 @@ public class Hand : MonoBehaviour
 			ft.setText(name);
 		}
 		
+		//floating text for picking up logic
+		if (name == "Magazine" && !carrying) {
+			FloatingText.magazine = col.gameObject;
+			FloatingText.attached = FloatingText.AttachPoint.Magazine;
+		} else if (carrying){
+			FloatingText.attached = FloatingText.AttachPoint.None;
+		}
 	}
 }
