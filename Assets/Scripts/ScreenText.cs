@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ScreenText : MonoBehaviour {
@@ -11,7 +11,8 @@ public class ScreenText : MonoBehaviour {
 		FireMessage,
 		LoadTheWeapon,
 		LoadAMagazine,
-		EmptyClip
+		EmptyClip,
+		StandAtRange
 	};
 	public static Warning warning;
 	public static bool dontShowFirstMessage = false;
@@ -39,6 +40,8 @@ public class ScreenText : MonoBehaviour {
 			warningString = "";
 		} else if (warning == Warning.PointDownRange) {
 			warningString = "Please keep the gun pointed down range.";
+		} else if (warning == Warning.StandAtRange) {
+			warningString = "Please stand in front of the range.";
 		} else if (warning == Warning.PlayerEntered) {
 			warningString = "Place a hand near an object to pick it up. Pick up a pistol with one hand and a magazine with another.";
 		} else if (warning == Warning.ShortSafetyMessage) {
