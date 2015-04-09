@@ -8,7 +8,6 @@ public class Hand : MonoBehaviour
     public Pickupable carriedObject;
     public bool rightHand;
 	int cooldown = 0;
-	public string collidingWith;
 
     // Use this for initialization
     void Start()
@@ -68,6 +67,7 @@ public class Hand : MonoBehaviour
 
 				cooldown = 50;
 
+				//What is this
 				Magazine mag = col.GetComponent<Collider>().gameObject.GetComponent<Magazine>();
 				if(mag != null){
 					mag.attached = Magazine.AttachPoint.Hand;
@@ -79,25 +79,30 @@ public class Hand : MonoBehaviour
 			}
 		}
 		string name = col.GetComponent<Collider> ().gameObject.name;
-		if (name == "HammerPoint" || name == "MagEntryPoint" || name == "SideOfGunPoint" || name == "SlidePoint") {
-			name = collidingWith;
+		if (name == "HammerPoint") {
 
-			FloatingText ft = GameObject.FindGameObjectWithTag ("FloatingText").GetComponent<FloatingText> ();
-			ft.GetComponent<Renderer> ().enabled = true;
-			ft.transform.position = this.transform.position * 2;
+		}
+		if (name == "MagEntryPoint") {
 
-			ft.setText(name);
+		}
+		if (name == "SlideOfGunPoint") {
+
+		}
+		if (name == "SlidePoint") {
+
 		}
 
-		//Debug.Log ("Name: " + name);
-		//floating text for picking up logic NOW IN MAGAZINE AND ABSTRACTGUN SCRIPTS
-		/*if (name == "Magazine" && !carrying) {
+		checkPickupText (col);
+	}
+
+	private void checkPickupText(Collider col){
+		if (name == "Magazine" && !carrying) {
 			FloatingText.magazine = col.gameObject;
 			FloatingText.attached = FloatingText.AttachPoint.Magazine;
-		} else if (name == "sigsauer" && !carrying){
+		} else if (name == "sigsauer" && !carrying) {
 			FloatingText.attached = FloatingText.AttachPoint.Gun;
-		} else if (carrying){
+		} else if (carrying) {
 			FloatingText.attached = FloatingText.AttachPoint.None;
-		}*/
+		}
 	}
 }
