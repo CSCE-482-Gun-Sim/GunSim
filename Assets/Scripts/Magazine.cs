@@ -94,6 +94,8 @@ public class Magazine : Pickupable {
 	}
 
 	private void lerpToObject(Transform transformMoveTo, float step){
+		FloatingText.attached = FloatingText.AttachPoint.None;
+
 		Vector3 positionCorrection = Vector3.zero;
 		if (attached == AttachPoint.Gun) {
 			positionCorrection = lerpPistolPosition;
