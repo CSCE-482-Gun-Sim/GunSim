@@ -99,6 +99,7 @@ public abstract class AbstractGun : Pickupable
 								}
 						} else {
 							ScreenText.warning = ScreenText.Warning.ShortSafetyMessage;
+							dryFire.Play ();
 						}
 				} else if (loadedMagazine == null && Shoot){
 					ScreenText.warning = ScreenText.Warning.LoadAMagazine;
