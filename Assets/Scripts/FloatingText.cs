@@ -59,9 +59,8 @@ public class FloatingText : MonoBehaviour {
 				snapTransform = magazine.transform;
 			} 
 
-			Vector3 snapPosition = snapTransform.position;
-			
-			
+			Vector3 snapPosition = new Vector3(snapTransform.position.x + 0.4f, snapTransform.position.y, snapTransform.position.z);
+
 			this.transform.position = new Vector3 (snapPosition.x - 0.5f, snapPosition.y, snapPosition.z);
 			
 		} 
