@@ -168,6 +168,9 @@ public class Magazine : Pickupable {
 		
 	}
 
+	/**
+	 * Figure out if user has grabbed a pistol and a magazine
+	 */
 	public void checkFirstCheckpointComplete(){
 		if ((rightHand.carriedObject.GetType () == typeof(Pistol) && 
 				leftHand.carriedObject.GetType () == typeof(Magazine)) || 
