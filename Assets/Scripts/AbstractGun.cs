@@ -18,6 +18,9 @@ public abstract class AbstractGun : Pickupable
 		Hand rightHand;
 		Hand leftHand;
 
+		AudioSource gunSound;
+		AudioSource dryFire;
+
 		// Use this for initialization
 		protected void Start ()
 		{
@@ -31,6 +34,10 @@ public abstract class AbstractGun : Pickupable
 				safetyOn = true;
 				rightHand = (Hand)GameObject.FindWithTag ("RightHand").GetComponent<Hand> ();
 				leftHand = (Hand)GameObject.FindWithTag ("LeftHand").GetComponent<Hand> ();
+
+				AudioSource[] audioSources = GetComponents<AudioSource>();
+				gunSound = audioSources [0];
+				dryFire = audioSources [1];
 		}
 
 		public override void carryUpdate (Hand hand)
@@ -68,7 +75,7 @@ public abstract class AbstractGun : Pickupable
 								//TriggerPulled = true;
 								//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
 								gunSlide.slideAction ();
-								GetComponent<AudioSource> ().Play ();
+								gunSound.Play ();
 								showMuzzleFlash ();
 								Vector3 fwd =  -this.transform.right;
 								Ray gunDirection = new Ray (GameObject.Find("MuzzlePoint").transform.position, fwd * 50);
@@ -95,8 +102,10 @@ public abstract class AbstractGun : Pickupable
 						}
 				} else if (loadedMagazine == null && Shoot){
 					ScreenText.warning = ScreenText.Warning.LoadAMagazine;
+					dryFire.Play ();
 				} else if (loadedMagazine != null && loadedMagazine.ammo == 0 && Shoot){
 					ScreenText.warning = ScreenText.Warning.EmptyClip;
+					dryFire.Play ();
 				}
 				Shoot = false;
 
