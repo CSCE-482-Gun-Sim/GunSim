@@ -8,7 +8,6 @@ public class Hand : MonoBehaviour
     public Pickupable carriedObject;
     public bool rightHand;
 	int cooldown = 0;
-	public string collidingWith;
 
     // Use this for initialization
     void Start()
@@ -68,6 +67,7 @@ public class Hand : MonoBehaviour
 
 				cooldown = 50;
 
+				//What is this
 				Magazine mag = col.GetComponent<Collider>().gameObject.GetComponent<Magazine>();
 				if(mag != null){
 					mag.attached = Magazine.AttachPoint.Hand;
@@ -79,17 +79,19 @@ public class Hand : MonoBehaviour
 			}
 		}
 		string name = col.GetComponent<Collider> ().gameObject.name;
-		if (name == "HammerPoint" || name == "MagEntryPoint" || name == "SideOfGunPoint" || name == "SlidePoint") {
-			name = collidingWith;
+		if (name == "HammerPoint") {
 
-			FloatingText ft = GameObject.FindGameObjectWithTag ("FloatingText").GetComponent<FloatingText> ();
-			ft.GetComponent<Renderer> ().enabled = true;
-			ft.transform.position = this.transform.position * 2;
-
-			ft.setText(name);
 		}
+		if (name == "MagEntryPoint") {
 
-		Debug.Log ("Name: " + name);
+		}
+		if (name == "SlideOfGunPoint") {
+
+		}
+		if (name == "SlidePoint") {
+
+		}
+	
 		//floating text for picking up logic
 		if (name == "Magazine" && !carrying) {
 			FloatingText.magazine = col.gameObject;
