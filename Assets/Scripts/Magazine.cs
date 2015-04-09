@@ -168,9 +168,9 @@ public class Magazine : Pickupable {
 
 	public void checkFirstCheckpointComplete(){
 		if ((rightHand.carriedObject.GetType () == typeof(Pistol) && 
-			leftHand.carriedObject.GetType () == typeof(Magazine)) || 
-			(leftHand.carriedObject.GetType () == typeof(Pistol) && 
-			rightHand.carriedObject.GetType () == typeof(Magazine))) {
+				leftHand.carriedObject.GetType () == typeof(Magazine)) || 
+				(leftHand.carriedObject.GetType () == typeof(Pistol) && 
+				rightHand.carriedObject.GetType () == typeof(Magazine))) {
 			ScreenText.dontShowFirstMessage = true;
 			ScreenText.warning = ScreenText.Warning.LoadTheWeapon;
 		}
@@ -180,11 +180,16 @@ public class Magazine : Pickupable {
 	{
 		string name = col.GetComponent<Collider> ().gameObject.name;
 		if (FloatingText.attached == FloatingText.AttachPoint.None && 
-		    ((name == "LeftHand" && leftHand.carriedObject == null) ||
-		    (name == "RightHand" && rightHand.carriedObject == null))){
+			    ((name == "LeftHand" && leftHand.carriedObject == null) ||
+			    (name == "RightHand" && rightHand.carriedObject == null))){
 			FloatingText.magazine = this.gameObject;
 			FloatingText.attached = FloatingText.AttachPoint.Magazine;
-		} 
+		} else if (FloatingText.attached == FloatingText.AttachPoint.Magazine && 
+		    	((name == "LeftHand" && leftHand.carriedObject.GetType() == typeof(Magazine)) ||
+		 		(name == "RightHand" && rightHand.carriedObject.GetType() == typeof(Pistol)))){
+			FloatingText.attached = FloatingText.AttachPoint.None;
+			FloatingText.magazine = null;
+		}
 	}
 
 	private void OnTriggerExit(Collider col){
