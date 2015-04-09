@@ -43,11 +43,12 @@ public class Magazine : Pickupable {
 
 			//only load if gun is in hand
 			//&& rightHand.carriedObject.GetType() == typeof(Pistol)
-			Debug.Log("type: " + (rightHand.carriedObject.GetType() == typeof(Pistol)));
+			//Debug.Log("type: " + (rightHand.carriedObject.GetType() == typeof(Pistol)));
+			Debug.Log("attached: " + attached);
  			if (attached == AttachPoint.Hand){
 				//only put magazine in gun if gun is attached
-				if ((rightHand.carriedObject != null && rightHand.carriedObject.GetType() == typeof(Pistol)) ||
-				    (leftHand.carriedObject != null && leftHand.carriedObject.GetType() == typeof(Pistol))) {
+				if ((rightHand.carriedObject != null && rightHand.carriedObject.GetType() == typeof(Pistol) && pistol.GetComponent<AbstractGun>().loadedMagazine == null) ||
+				    (leftHand.carriedObject != null && leftHand.carriedObject.GetType() == typeof(Pistol)) && pistol.GetComponent<AbstractGun>().loadedMagazine == null) {
 					needsToLerp = true;
 					attached = AttachPoint.Gun;
 					this.GetComponent<Rigidbody>().isKinematic = true;
