@@ -15,6 +15,8 @@ public abstract class AbstractGun : Pickupable
 		bool safetyOn;
 		bool Shoot;
 		Color safetyOffColor = new Color (.1f, .1f, .1f);
+		Hand rightHand;
+		Hand leftHand;
 
 		// Use this for initialization
 		protected void Start ()
@@ -27,6 +29,8 @@ public abstract class AbstractGun : Pickupable
 				safety = GameObject.FindWithTag ("Safety");
 				safety.GetComponent<Renderer> ().material.color = safetyOffColor;
 				safetyOn = true;
+				rightHand = (Hand)GameObject.FindWithTag ("RightHand").GetComponent<Hand> ();
+				leftHand = (Hand)GameObject.FindWithTag ("LeftHand").GetComponent<Hand> ();
 		}
 
 		public override void carryUpdate (Hand hand)
@@ -139,4 +143,24 @@ public abstract class AbstractGun : Pickupable
 				}
 
 		}
+
+	private void OnTriggerStay(Collider col)
+	{
+		string name = col.GetComponent<Collider> ().gameObject.name;
+		if (FloatingText.attached == FloatingText.AttachPoint.None && 
+		    ((name == "LeftHand" && leftHand.carriedObject == null) ||
+		 (name == "RightHand" && rightHand.carriedObject == null))){
+			FloatingText.attached = FloatingText.AttachPoint.Gun;
+		} else if (FloatingText.attached == FloatingText.AttachPoint.Gun && 
+		        ((name == "LeftHand" && leftHand.carriedObject.GetType() == typeof(Pistol)) ||
+		 		(name == "RightHand" && rightHand.carriedObject.GetType() == typeof(Pistol)))){
+			FloatingText.attached = FloatingText.AttachPoint.None;
+		}
+	}
+	
+	private void OnTriggerExit(Collider col){
+		if (FloatingText.attached == FloatingText.AttachPoint.Gun) {
+			FloatingText.attached = FloatingText.AttachPoint.None;
+		}
+	}
 }

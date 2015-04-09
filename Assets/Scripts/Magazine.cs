@@ -175,4 +175,21 @@ public class Magazine : Pickupable {
 			ScreenText.warning = ScreenText.Warning.LoadTheWeapon;
 		}
 	}
+
+	private void OnTriggerStay(Collider col)
+	{
+		string name = col.GetComponent<Collider> ().gameObject.name;
+		if (FloatingText.attached == FloatingText.AttachPoint.None && 
+		    ((name == "LeftHand" && leftHand.carriedObject == null) ||
+		    (name == "RightHand" && rightHand.carriedObject == null))){
+			FloatingText.magazine = this.gameObject;
+			FloatingText.attached = FloatingText.AttachPoint.Magazine;
+		} 
+	}
+
+	private void OnTriggerExit(Collider col){
+		if (FloatingText.attached == FloatingText.AttachPoint.Magazine) {
+			FloatingText.attached = FloatingText.AttachPoint.None;
+		}
+	}
 }

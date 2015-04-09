@@ -47,7 +47,7 @@ public class FloatingText : MonoBehaviour {
 		} else if(attached == AttachPoint.Magazine) {
 			this.GetComponent<TextMesh> ().text = "Press the primary button to pick up the magazine.";
 			this.gameObject.GetComponent<Renderer>().enabled = true;
-		} 
+		}
 		
 		//snap to object
 		if (this.gameObject.GetComponent<Renderer>().enabled) {

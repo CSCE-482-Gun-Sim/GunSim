@@ -89,15 +89,15 @@ public class Hand : MonoBehaviour
 			ft.setText(name);
 		}
 
-		Debug.Log ("Name: " + name);
-		//floating text for picking up logic
-		if (name == "Magazine" && !carrying) {
+		//Debug.Log ("Name: " + name);
+		//floating text for picking up logic NOW IN MAGAZINE AND ABSTRACTGUN SCRIPTS
+		/*if (name == "Magazine" && !carrying) {
 			FloatingText.magazine = col.gameObject;
 			FloatingText.attached = FloatingText.AttachPoint.Magazine;
 		} else if (name == "sigsauer" && !carrying){
 			FloatingText.attached = FloatingText.AttachPoint.Gun;
 		} else if (carrying){
 			FloatingText.attached = FloatingText.AttachPoint.None;
-		}
+		}*/
 	}
 }
