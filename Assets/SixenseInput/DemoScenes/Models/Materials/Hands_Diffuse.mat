@@ -32,7 +32,7 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 1
+        second: .275999993
     m_Colors:
       data:
         first:
@@ -41,4 +41,4 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: .149253726, g: .121711656, b: .111383379, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}

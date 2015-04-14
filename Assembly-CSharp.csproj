@@ -1,100 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>10.0.20506</ProductVersion>
-	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{647F542E-1482-EAA6-F51F-36FC6D2C0166}</ProjectGuid>
-	<OutputType>Library</OutputType>
-	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
-	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-	<FileAlignment>512</FileAlignment>
-	<BaseDirectory>Assets</BaseDirectory>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF432A6E-C11F-A9A9-8D89-486B3BB3D05D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	<DebugSymbols>true</DebugSymbols>
-	<DebugType>full</DebugType>
-	<Optimize>false</Optimize>
-	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_0_0;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_0_0;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<DebugType>pdbonly</DebugType>
-	<Optimize>true</Optimize>
-	<OutputPath>Temp\bin\Release\</OutputPath>
-	<DefineConstants>TRACE</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-	<Reference Include="System" />
-    <Reference Include="System.XML" />
-	<Reference Include="System.Core" />
-	<Reference Include="System.Xml.Linq" />
-	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-	</Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Oculus Related\Scripts\OVRCameraRig.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\OVRCommon.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\OVRDisplay.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\OVRManager.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\OVRPluginEvent.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\OVRTracker.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\OvrCapi.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRCrosshair.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGUI.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGamepadController.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGridCube.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRMainMenu.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRPlayerController.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRScreenFade.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
-     <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
-     <Compile Include="Assets\Scripts\AbstractGun.cs" />
-     <Compile Include="Assets\Scripts\EnterRoomDetector.cs" />
-     <Compile Include="Assets\Scripts\FloatingText.cs" />
-     <Compile Include="Assets\Scripts\GunSlide.cs" />
-     <Compile Include="Assets\Scripts\Hand.cs" />
-     <Compile Include="Assets\Scripts\Magazine.cs" />
-     <Compile Include="Assets\Scripts\Pickup_Object.cs" />
-     <Compile Include="Assets\Scripts\Pickupable.cs" />
-     <Compile Include="Assets\Scripts\Pistol.cs" />
-     <Compile Include="Assets\Scripts\SafetyMonitor.cs" />
-     <Compile Include="Assets\Scripts\ScreenText.cs" />
-     <Compile Include="Assets\Scripts\StandAtRange.cs" />
-     <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseHand.cs" />
-     <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseHandsController.cs" />
-     <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseInputTest.cs" />
-     <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseObjectController.cs" />
-     <Compile Include="Assets\SixenseInput\Scripts\SixenseInput.cs" />
-     <Compile Include="Assets\SixenseInput\Scripts\SixensePlugin.cs" />
-     <Compile Include="Assets\Test.cs" />
-     <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
-     <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />
-     <None Include="Assets\Oculus Related\Shaders\TextShader3D.shader" />
-     <None Include="Assets\Oculus Related\Shaders\OVRGUIShader.shader" />
-     <None Include="Assets\Oculus Related\Plugins\x86\donotdelete.txt" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Oculus Related\Scripts\OVRCameraRig.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\OVRCommon.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\OVRDisplay.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\OVRManager.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\OVRPluginEvent.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\OVRTracker.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\OvrCapi.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRCrosshair.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGUI.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGamepadController.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRGridCube.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRMainMenu.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRPlayerController.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRScreenFade.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRUGUI.cs" />
+    <Compile Include="Assets\Oculus Related\Scripts\Util\OVRVisionGuide.cs" />
+    <Compile Include="Assets\Scripts\AbstractGun.cs" />
+    <Compile Include="Assets\Scripts\EnterRoomDetector.cs" />
+    <Compile Include="Assets\Scripts\FloatingText.cs" />
+    <Compile Include="Assets\Scripts\GunSlide.cs" />
+    <Compile Include="Assets\Scripts\Hand.cs" />
+    <Compile Include="Assets\Scripts\Magazine.cs" />
+    <Compile Include="Assets\Scripts\Pickup_Object.cs" />
+    <Compile Include="Assets\Scripts\Pickupable.cs" />
+    <Compile Include="Assets\Scripts\Pistol.cs" />
+    <Compile Include="Assets\Scripts\SafetyMonitor.cs" />
+    <Compile Include="Assets\Scripts\ScreenText.cs" />
+    <Compile Include="Assets\Scripts\StandAtRange.cs" />
+    <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseHand.cs" />
+    <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseHandsController.cs" />
+    <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseInputTest.cs" />
+    <Compile Include="Assets\SixenseInput\DemoScenes\Scripts\SixenseObjectController.cs" />
+    <Compile Include="Assets\SixenseInput\Scripts\SixenseInput.cs" />
+    <Compile Include="Assets\SixenseInput\Scripts\SixensePlugin.cs" />
+    <Compile Include="Assets\Test.cs" />
+    <None Include="Assets\Oculus Related\Plugins\donotdelete.txt" />
+    <None Include="Assets\Oculus Related\Plugins\x86_64\donotdelete.txt" />
+    <None Include="Assets\Oculus Related\Shaders\TextShader3D.shader" />
+    <None Include="Assets\Oculus Related\Shaders\OVRGUIShader.shader" />
+    <None Include="Assets\Oculus Related\Plugins\x86\donotdelete.txt" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{43D16155-A758-5C09-D154-E5C820BDEB0F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{9CA3E500-EFFF-AE8D-BFD2-BF6B43E019E6}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+      <Project>{3A701147-E6B6-E084-DF80-2DC7FF7A9914}</Project>
+      <Name>Assembly-UnityScript-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -104,5 +103,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
