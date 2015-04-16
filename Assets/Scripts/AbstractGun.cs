@@ -42,7 +42,7 @@ public abstract class AbstractGun : Pickupable
 				dryFire = audioSources [1];
 
 				//DEBUG
-				loadedMagazine = GameObject.FindWithTag ("Magazine").GetComponent<Magazine> ();
+				//loadedMagazine = GameObject.FindWithTag ("Magazine").GetComponent<Magazine> ();
 		}
 
 		public override void carryUpdate(Hand hand)

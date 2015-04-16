@@ -37,36 +37,32 @@ public class Magazine : Pickupable
 
 	public void Insert(Hand hand)
 	{
-
+		if ( attached == AttachPoint.Hand ) {
+			//only put magazine in gun if gun is attached
+			if ( (rightHand.carriedObject != null && rightHand.carriedObject.GetType () == typeof(Pistol) && pistol.GetComponent<AbstractGun> ().loadedMagazine == null) ||
+			    (leftHand.carriedObject != null && leftHand.carriedObject.GetType () == typeof(Pistol)) && pistol.GetComponent<AbstractGun> ().loadedMagazine == null ) {
+				needsToLerp = true;
+				attached = AttachPoint.Gun;
+				this.GetComponent<Rigidbody> ().isKinematic = true;
+				
+				if ( leftHand.carriedObject.GetType () == typeof(Magazine) ) {
+					leftHand.carriedObject = null;
+					leftHand.carrying = false;
+				} else if ( rightHand.carriedObject.GetType () == typeof(Magazine) ) {
+					rightHand.carriedObject = null;
+					rightHand.carrying = false;
+				}
+			}
+		}
 	}
 
 	public void Eject()
 	{
-			if ( ScreenText.warning == ScreenText.Warning.LoadTheWeapon ) {
+			/*if ( ScreenText.warning == ScreenText.Warning.LoadTheWeapon ) {
 				ScreenText.warning = ScreenText.Warning.LongSafetyMessage;
-			}
-			
-			//only load if gun is in hand
-			//&& rightHand.carriedObject.GetType() == typeof(Pistol)
-			//Debug.Log("type: " + (rightHand.carriedObject.GetType() == typeof(Pistol)));
-			Debug.Log ("attached: " + attached);
-			if ( attached == AttachPoint.Hand ) {
-				//only put magazine in gun if gun is attached
-				if ( (rightHand.carriedObject != null && rightHand.carriedObject.GetType () == typeof(Pistol) && pistol.GetComponent<AbstractGun> ().loadedMagazine == null) ||
-				    (leftHand.carriedObject != null && leftHand.carriedObject.GetType () == typeof(Pistol)) && pistol.GetComponent<AbstractGun> ().loadedMagazine == null ) {
-					needsToLerp = true;
-					attached = AttachPoint.Gun;
-					this.GetComponent<Rigidbody> ().isKinematic = true;
-					
-					if ( leftHand.carriedObject.GetType () == typeof(Magazine) ) {
-						leftHand.carriedObject = null;
-						leftHand.carrying = false;
-					} else if ( rightHand.carriedObject.GetType () == typeof(Magazine) ) {
-						rightHand.carriedObject = null;
-						rightHand.carrying = false;
-					}
-				}
-			} else if ( attached == AttachPoint.Gun ) {
+			}*/
+
+			if ( attached == AttachPoint.Gun ) {
 				attached = AttachPoint.None;
 				this.GetComponent<Rigidbody> ().isKinematic = false;
 				this.transform.parent = null;
@@ -74,11 +70,7 @@ public class Magazine : Pickupable
 				//pistol no longer has magazine
 				AbstractGun pistolClass = (AbstractGun)pistol.GetComponent (typeof(AbstractGun));
 				pistolClass.loadedMagazine = null;
-			} //else {
-			//needsToLerp = true;
-			//attached = AttachPoint.Hand;
-			//this.GetComponent<Rigidbody>().isKinematic = true;
-			//}
+			} 
 	}
 
 
