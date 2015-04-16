@@ -92,17 +92,17 @@ public class Hand : MonoBehaviour
 																cooldown = 50;
 																print ("ENTRY GOOD");
 														}
-												}
-										}
+												} 
+										} else if ( carriedObject == null && ((rightHand && (SixenseInput.Controllers [1].Trigger > .8)) || (!rightHand && (SixenseInput.Controllers [0].Trigger > .8)))) {
+																AbstractGun G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
+																G.Eject ();
+																cooldown = 50;
+																print ("EJECT GOOD");
+															}
 								}
 								if ( name == "SideOfGunPoint" ) {
 										if ( carriedObject == null ) {
-												if ( (rightHand && RightBumper) || (!rightHand && LeftBumper) ) {
-														AbstractGun G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
-														G.Eject ();
-														cooldown = 50;
-														print ("EJECT GOOD");
-												}
+												
 												if ( (rightHand && (SixenseInput.Controllers [1].Trigger > .8)) || (!rightHand && (SixenseInput.Controllers [0].Trigger > .8)) ) {
 														AbstractGun G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
 														G.SafteyToggle ();
