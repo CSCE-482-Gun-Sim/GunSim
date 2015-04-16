@@ -52,6 +52,22 @@ public class MouseLook : MonoBehaviour {
 			
 			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 		}
+		
+		SixenseInput.Controller hydraRightController = SixenseInput.GetController (SixenseHands.RIGHT); 
+		Vector3 directionVector;
+		directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		if (hydraRightController != null) { 
+			directionVector= new Vector3(hydraRightController.JoystickX, 0, hydraRightController.JoystickY); 
+		}
+		
+		if (directionVector != Vector3.zero) {
+			float rotationX = transform.localEulerAngles.y + hydraRightController.JoystickX * sensitivityX;
+			
+			rotationY += hydraRightController.JoystickY * sensitivityY;
+			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+		}
 	}
 	
 	void Start ()
