@@ -3,53 +3,79 @@ using System.Collections;
 
 public class GunSlide : MonoBehaviour
 {
-		enum SlideTarget
+		public enum SlideTarget
 		{
+				Ready,
+				Back,
 				Forwards,
-				Backwards,
-				None
+				Backwards
 	}
 		;
-		SlideTarget target;
+		public Transform emptyBulletShell;
+		public Transform ejectedBullet;
+		public SlideTarget target;
+		AbstractGun G;
 		Vector3 startingPosition;
 		Vector3 finalKickPosition;
+		Vector3 targetPosition;
 		float speed = 20.0f;
 
 		// Use this for initialization
 		void Start()
 		{
-				target = SlideTarget.None;	
+				targetPosition = this.transform.localPosition;
+				target = SlideTarget.Ready;	
 				startingPosition = this.transform.localPosition;
 				finalKickPosition = new Vector3 (startingPosition.x + 0.8f, startingPosition.y, startingPosition.z); 
+				G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
 		}
 	
 		// Update is called once per frame
 		void Update()
 		{
-				//slide needs to move
-				if ( target != SlideTarget.None ) {
+		//print (target.ToString());
+				if ( target != SlideTarget.Ready || target != SlideTarget.Back) {
 						float step = speed * Time.deltaTime;
-						Vector3 targetPosition = new Vector3 ();
-						if ( target == SlideTarget.Backwards ) {
-								//slide has reached final kick position, go forwards
-								if ( this.transform.localPosition == finalKickPosition ) {
-										target = SlideTarget.Forwards;
-										targetPosition = startingPosition;
-								} else {
-										targetPosition = finalKickPosition;
-								}
-						} else {	//move forwards
-								if ( this.transform.localPosition == startingPosition ) {
-										target = SlideTarget.None;	//done moving
-								}
-								targetPosition = startingPosition;
-						}
 						this.transform.localPosition = Vector3.MoveTowards (this.transform.localPosition, targetPosition, step);
+				}
+
+				if ( target == SlideTarget.Backwards ) {
+						//slide has reached final kick position, go forwards
+						if ( this.transform.localPosition == finalKickPosition ) {
+								if ( G.loadedMagazine != null && G.loadedMagazine.ammo > 0 ) {
+										SetForward ();
+								} else {
+										target = SlideTarget.Back;
+								}
+						}
+				} else if ( target == SlideTarget.Forwards ) {
+								if ( this.transform.localPosition == startingPosition ) {
+										target = SlideTarget.Ready;
+								}
+						}
+		}
+
+		public void SetForward()
+		{
+				target = SlideTarget.Forwards;
+				targetPosition = startingPosition;
+
+				if ( G.loadedMagazine != null && G.loadedMagazine.ammo > 0 ) {
+						G.bulletInChamber = true;
+						G.loadedMagazine.ammo--;
+
+			Object g = Instantiate (ejectedBullet, this.gameObject.transform.position, Quaternion.identity);
 				}
 		}
 
-		public void slideAction()
+		public void SetBack()
 		{
-				target = SlideTarget.Backwards;
+		target = SlideTarget.Backwards;
+				targetPosition = finalKickPosition;
+		}
+
+		public void slideFire()
+		{
+				SetBack ();
 		}
 }

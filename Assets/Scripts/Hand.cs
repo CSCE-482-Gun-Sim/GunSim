@@ -104,15 +104,22 @@ public class Hand : MonoBehaviour
 														print ("EJECT GOOD");
 												}
 												if ( (rightHand && (SixenseInput.Controllers [1].Trigger > .8)) || (!rightHand && (SixenseInput.Controllers [0].Trigger > .8)) ) {
-													AbstractGun G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
-													G.SafteyToggle();
-							print ("SAFTEY GOOD");
-							cooldown = 50;
+														AbstractGun G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
+														G.SafteyToggle ();
+														print ("SAFTEY GOOD");
+														cooldown = 50;
 												}
 										}
 								}
 								if ( name == "SlidePoint" ) {
-					
+					if ( carriedObject == null ) {
+						if ( (rightHand && RightBumper) || (!rightHand && LeftBumper) ) {
+							AbstractGun G = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
+							G.gunSlide.SetBack();
+							cooldown = 50;
+							print ("BackGood GOOD");
+						}
+					}
 								}
 						}
 				}

@@ -223,11 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe678470b70720d4aa5ff71452e6b471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &73070352 stripped
+--- !u!1 &73070352
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: bc25d425d9f7c324cb002af8a8a67c67, type: 3}
   m_PrefabInternal: {fileID: 1885525550}
---- !u!4 &73070353 stripped
+--- !u!4 &73070353
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: bc25d425d9f7c324cb002af8a8a67c67, type: 3}
   m_PrefabInternal: {fileID: 1885525550}
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 175317502}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
   m_LocalPosition: {x: 40.7859993, y: -.834999979, z: -11.8330002}
-  m_LocalScale: {x: .0700000003, y: .0700000003, z: .0700000003}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children:
   - {fileID: 1602427088}
   - {fileID: 1561028692}
@@ -500,8 +500,10 @@ MonoBehaviour:
   handPositionOffset: {x: 0, y: 0, z: 0}
   pickedUp: 0
   barrel_offset: {x: -1.55939198, y: -.00212227204, z: -2.21985102}
+  gunSlide: {fileID: 0}
   bulletHole: {fileID: 400000, guid: c85f879fb112f104b8d90a4ed6ce90f9, type: 2}
   loadedMagazine: {fileID: 0}
+  bulletInChamber: 0
 --- !u!23 &175317508
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1256,7 +1258,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 903173683}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
@@ -1790,7 +1792,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1242984552}
   m_LocalRotation: {x: -.5, y: -.5, z: .50000006, w: .49999994}
-  m_LocalPosition: {x: .170000002, y: .00200000009, z: -2.18899989}
+  m_LocalPosition: {x: .109999999, y: .0299999993, z: -2.19000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 175317503}
@@ -2006,6 +2008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968ff7198a562ff4590cbf0be7de3ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptyBulletShell: {fileID: 460234, guid: 803b3273e7030594894c4c9e596b37dc, type: 2}
+  ejectedBullet: {fileID: 460234, guid: 803b3273e7030594894c4c9e596b37dc, type: 2}
+  target: 0
 --- !u!1001 &1278697401
 Prefab:
   m_ObjectHideFlags: 0
@@ -3410,7 +3415,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 40.1749992
+      value: 40.1699982
       objectReference: {fileID: 0}
     - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
       propertyPath: m_RootOrder
