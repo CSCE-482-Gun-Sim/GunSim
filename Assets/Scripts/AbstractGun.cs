@@ -5,12 +5,13 @@ public abstract class AbstractGun : Pickupable
 {
 		public Vector3 barrel_offset;
 		GameObject player;
-		GunSlide gunSlide;
+		public GunSlide gunSlide;
 		Pickup_Object playerFunctions;
 		public Transform bulletHole;
 		bool TriggerPulled;
 		ParticleSystem flash;
 		public Magazine loadedMagazine;
+		public bool bulletInChamber;
 		GameObject safety;
 		bool safetyOn;
 		bool Shoot;
@@ -19,10 +20,12 @@ public abstract class AbstractGun : Pickupable
 		Hand leftHand;
 		AudioSource gunSound;
 		AudioSource dryFire;
+		int cooldown;
 
 		// Use this for initialization
 		protected void Start()
 		{
+				cooldown = 0;
 				player = GameObject.FindWithTag ("Player");
 				gunSlide = (GunSlide)GameObject.FindWithTag ("GunSlide").GetComponent (typeof(GunSlide));
 				playerFunctions = player.GetComponent<Pickup_Object> ();
@@ -37,14 +40,18 @@ public abstract class AbstractGun : Pickupable
 				AudioSource[] audioSources = GetComponents<AudioSource> ();
 				gunSound = audioSources [0];
 				dryFire = audioSources [1];
-		}
 
+				//DEBUG
+				loadedMagazine = GameObject.FindWithTag ("Magazine").GetComponent<Magazine> ();
+		}
 
 		public override void carryUpdate(Hand hand)
 		{
-
 				//if gun is shot
-	
+				if ( cooldown != 0 ) {
+						cooldown = cooldown - 1;
+						return;
+				}
 
 				if ( hand.rightHand ) {
 						if ( (SixenseInput.Controllers [1].Trigger > .8) || Input.GetMouseButton (0) ) {
@@ -66,17 +73,16 @@ public abstract class AbstractGun : Pickupable
 								TriggerPulled = false;
 						}
 				}
-
-				if ( loadedMagazine != null && loadedMagazine.ammo > 0 && Shoot ) {
+		    
+				if ( bulletInChamber && Shoot ) {
 						if ( !safetyOn ) {
+								bulletInChamber = false;
 								if ( ScreenText.warning == ScreenText.Warning.FireMessage ) {
 										ScreenText.warning = ScreenText.Warning.None;
 								}
+								cooldown = 20;
 								ScreenText.firedOnce = true;
-								loadedMagazine.ammo--;
-								//TriggerPulled = true;
-								//Debug.Log(playerFunctions.carriedObject.transform.TransformDirection(Vector3.forward));
-								gunSlide.slideAction ();
+								gunSlide.slideFire ();
 								gunSound.Play ();
 								showMuzzleFlash ();
 								Vector3 fwd = -this.transform.right;
@@ -89,8 +95,6 @@ public abstract class AbstractGun : Pickupable
 								RaycastHit[] hits;
 								hits = Physics.RaycastAll (GameObject.Find ("MuzzlePoint").transform.position, fwd, 50);
 								while ( i < hits.Length ) {
-										
-					
 										if ( hits [i].collider.gameObject.tag == "Target" ) {	
 												Debug.Log ("HIT");
 												Quaternion bulletHoleRotation = Quaternion.FromToRotation (Vector3.up, hits [i].normal);
@@ -99,37 +103,28 @@ public abstract class AbstractGun : Pickupable
 										}
 										i++;
 								}
-						} else {
-								ScreenText.warning = ScreenText.Warning.ShortSafetyMessage;
+						}
+				} else if ( bulletInChamber == false && gunSlide.target == GunSlide.SlideTarget.Ready && Shoot ) {
 								dryFire.Play ();
 						}
-				} else if ( loadedMagazine == null && Shoot ) {
-								ScreenText.warning = ScreenText.Warning.LoadAMagazine;
-								dryFire.Play ();
-						} else if ( loadedMagazine != null && loadedMagazine.ammo == 0 && Shoot ) {
-										ScreenText.warning = ScreenText.Warning.EmptyClip;
-										dryFire.Play ();
-								}
 				Shoot = false;
 
-		if ( safetyOn ) {
-			safety.GetComponent<Renderer> ().material.color = safetyOffColor;
-		} else {
-			safety.GetComponent<Renderer> ().material.color = Color.red;
-			if ( ScreenText.warning == ScreenText.Warning.ShortSafetyMessage ) {
-				ScreenText.warning = ScreenText.Warning.None;
-			} else if ( ScreenText.warning == ScreenText.Warning.LongSafetyMessage ) {
-				ScreenText.warning = ScreenText.Warning.FireMessage;
-			}
-		}
+				if ( safetyOn ) {
+						safety.GetComponent<Renderer> ().material.color = safetyOffColor;
+				} else {
+						safety.GetComponent<Renderer> ().material.color = Color.red;
+						if ( ScreenText.warning == ScreenText.Warning.ShortSafetyMessage ) {
+								ScreenText.warning = ScreenText.Warning.None;
+						} else if ( ScreenText.warning == ScreenText.Warning.LongSafetyMessage ) {
+										ScreenText.warning = ScreenText.Warning.FireMessage;
+								}
+				}
 		}
 
-	public void SafteyToggle()
-	{
-		if ( Input.GetKeyDown (KeyCode.C) ) {
-			safetyOn = !safetyOn;
+		public void SafteyToggle()
+		{
+						safetyOn = !safetyOn;
 		}
-	}
 
 		void showMuzzleFlash()
 		{
@@ -168,7 +163,7 @@ public abstract class AbstractGun : Pickupable
 						FloatingText.attached = FloatingText.AttachPoint.Gun;
 				} else if ( FloatingText.attached == FloatingText.AttachPoint.Gun && 
 								((name == "LeftHand" && leftHand == null && leftHand.carriedObject.GetType () == typeof(Pistol)) ||
-		 (name == "RightHand" && rightHand == null &&rightHand.carriedObject.GetType () == typeof(Pistol))) ) {
+								(name == "RightHand" && rightHand == null && rightHand.carriedObject.GetType () == typeof(Pistol))) ) {
 								FloatingText.attached = FloatingText.AttachPoint.None;
 						}
 		}
@@ -180,10 +175,10 @@ public abstract class AbstractGun : Pickupable
 				}
 		}
 
-	public void Eject()
-	{
-		if ( loadedMagazine != null ) {
+		public void Eject()
+		{
+				if ( loadedMagazine != null ) {
 						loadedMagazine.Eject ();
 				}
-	}
+		}
 }
