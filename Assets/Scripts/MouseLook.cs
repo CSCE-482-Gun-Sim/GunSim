@@ -29,8 +29,7 @@ public class MouseLook : MonoBehaviour {
 	public float maximumY = 60F;
 
 	float rotationY = 0F;
-
-	SixenseInput.Controller hydraRightController = SixenseInput.GetController (SixenseHands.RIGHT);
+	float rotationHydraY = 0F;
 
 	void Update ()
 	{
@@ -57,7 +56,8 @@ public class MouseLook : MonoBehaviour {
 		Debug.Log ("Mouse X " + Input.GetAxis("Mouse X"));
 		 
 		Vector3 directionVector = new Vector3();
-		Debug.Log (hydraRightController);
+		SixenseInput.Controller hydraRightController = SixenseInput.GetController (SixenseHands.RIGHT);
+		Debug.Log ("Hydra right controller: " + hydraRightController);
 		//directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		if (hydraRightController != null) { 
 			directionVector= new Vector3(hydraRightController.JoystickX, 0, hydraRightController.JoystickY); 
@@ -66,10 +66,10 @@ public class MouseLook : MonoBehaviour {
 		if (directionVector != Vector3.zero) {
 			float rotationX = transform.localEulerAngles.y + hydraRightController.JoystickX * sensitivityX;
 			
-			rotationY += hydraRightController.JoystickY * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			rotationHydraY += hydraRightController.JoystickY * sensitivityY;
+			rotationHydraY = Mathf.Clamp (rotationHydraY, minimumY, maximumY);
 			
-			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+			transform.localEulerAngles = new Vector3(-rotationHydraY, rotationX, 0);
 		}
 	}
 	
