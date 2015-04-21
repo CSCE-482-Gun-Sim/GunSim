@@ -342,8 +342,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137221505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.69000006, y: -.519999981, z: -1.36000001}
-  m_LocalScale: {x: 1, y: .25, z: 1}
+  m_LocalPosition: {x: 1.32000005, y: -.850000024, z: -1.36000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 175317503}
   m_RootOrder: 10
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handRotationOffset: {x: 90, y: 90, z: 0}
-  handPositionOffset: {x: 0, y: 0, z: 0}
+  handPositionOffset: {x: 0, y: -.150000006, z: .600000024}
   pickedUp: 0
   barrel_offset: {x: -1.55939198, y: -.00212227204, z: -2.21985102}
   gunSlide: {fileID: 0}
@@ -793,7 +793,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_BounceIntensity: .920000017
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -884,6 +884,14 @@ Prefab:
     - target: {fileID: 431512, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
       propertyPath: m_LocalRotation.w
       value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442624, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: pistolRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442624, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
+      propertyPath: pistolRotation.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66409b3fb24411945a7a0ee0ed657c58, type: 2}
@@ -1326,7 +1334,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_BounceIntensity: .920000017
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1573,8 +1581,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1102207851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.86099994, y: .0900000036, z: 1.59000003}
-  m_LocalScale: {x: 1, y: 1, z: .5}
+  m_LocalPosition: {x: 1.86000001, y: .0900000036, z: 1.69000006}
+  m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 175317503}
   m_RootOrder: 8
@@ -2189,7 +2197,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_BounceIntensity: .910000026
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3611,7 +3619,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_BounceIntensity: .910000026
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3622,7 +3630,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1632426716}
-  m_LocalRotation: {x: .346829027, y: -.390448421, z: .161729053, w: .837319195}
+  m_LocalRotation: {x: .212465584, y: .786774278, z: -.436623901, w: .381056786}
   m_LocalPosition: {x: 42.9199982, y: 1.51999998, z: -8.36999989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
