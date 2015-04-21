@@ -21,13 +21,13 @@ public class MouseLook : MonoBehaviour {
 	public RotationAxes axes = RotationAxes.MouseXAndY;
 	public float sensitivityX = 15F;
 	public float sensitivityY = 15F;
-	public float hydraSensitivityY = 15F;
+	public float hydraSensitivityY = 45F;
 
 	public float minimumX = -360F;
 	public float maximumX = 360F;
 
-	public float minimumY = -40F;
-	public float maximumY = 40F;
+	public float minimumY = -60F;
+	public float maximumY = 60F;
 
 	float rotationY = 0F;
 	float rotationHydraY = 0F;
