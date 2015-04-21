@@ -21,6 +21,7 @@ public class MouseLook : MonoBehaviour {
 	public RotationAxes axes = RotationAxes.MouseXAndY;
 	public float sensitivityX = 15F;
 	public float sensitivityY = 15F;
+	public float hydraSensitivityY = 70F;
 
 	public float minimumX = -360F;
 	public float maximumX = 360F;
@@ -65,9 +66,11 @@ public class MouseLook : MonoBehaviour {
 		Debug.Log (directionVector);
 		if (directionVector != Vector3.zero) {
 			float rotationX = transform.localEulerAngles.y + hydraRightController.JoystickX * sensitivityX;
-			
-			rotationHydraY += hydraRightController.JoystickY * sensitivityY;
-			rotationHydraY = Mathf.Clamp (rotationHydraY, minimumY, maximumY);
+			rotationHydraY = transform.localEulerAngles.z + hydraRightController.JoystickY * hydraSensitivityY;
+			//rotationHydraY += hydraRightController.JoystickY * sensitivityY;
+			//rotationHydraY = Mathf.Clamp (rotationHydraY, minimumY, maximumY);
+			//rotationY += hydraRightController.JoystickY * sensitivityY;
+			//rotationY = Mathf.Clamp (rotationHydraY, minimumY, maximumY);
 			
 			transform.localEulerAngles = new Vector3(-rotationHydraY, rotationX, 0);
 		}
