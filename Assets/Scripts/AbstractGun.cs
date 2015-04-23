@@ -76,7 +76,7 @@ public abstract class AbstractGun : Pickupable
 		    
 				if ( bulletInChamber && Shoot ) {
 						if ( !safetyOn ) {
-								bulletInChamber = false;
+								//bulletInChamber = false;
 								if ( ScreenText.warning == ScreenText.Warning.FireMessage ) {
 										ScreenText.warning = ScreenText.Warning.None;
 								}
@@ -104,9 +104,11 @@ public abstract class AbstractGun : Pickupable
 										i++;
 								}
 						}
-				} else if ( bulletInChamber == false && gunSlide.target == GunSlide.SlideTarget.Ready && Shoot ) {
+				} else {
+						if ( bulletInChamber == false && gunSlide.target == GunSlide.SlideTarget.Ready && Shoot ) {
 								dryFire.Play ();
 						}
+				}
 				Shoot = false;
 
 				if ( safetyOn ) {

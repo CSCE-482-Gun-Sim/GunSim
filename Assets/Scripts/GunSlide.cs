@@ -19,6 +19,7 @@ public class GunSlide : MonoBehaviour
 		Vector3 finalKickPosition;
 		Vector3 targetPosition;
 		float speed = 20.0f;
+	bool gunshot;
 
 		// Use this for initialization
 		void Start()
@@ -63,19 +64,22 @@ public class GunSlide : MonoBehaviour
 				if ( G.loadedMagazine != null && G.loadedMagazine.ammo > 0 ) {
 						G.bulletInChamber = true;
 						G.loadedMagazine.ammo--;
-
-			Object g = Instantiate (ejectedBullet, this.gameObject.transform.position, Quaternion.identity);
 				}
 		}
 
 		public void SetBack()
 		{
-		target = SlideTarget.Backwards;
+				target = SlideTarget.Backwards;
 				targetPosition = finalKickPosition;
+		if ( G.bulletInChamber ) {
+			G.bulletInChamber = false;
+						Object g = Instantiate (ejectedBullet, this.gameObject.transform.position, Quaternion.identity);
+				}
 		}
 
 		public void slideFire()
 		{
+				gunshot = true;
 				SetBack ();
 		}
 }
