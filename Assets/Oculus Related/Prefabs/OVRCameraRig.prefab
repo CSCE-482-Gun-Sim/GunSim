@@ -203,7 +203,6 @@ MonoBehaviour:
   usePositionTracking: 1
   eyeTextureFormat: 7
   eyeTextureDepth: 24
-  mirrorToMainWindow: 1
   timeWarp: 1
   freezeTimeWarp: 0
   resetTrackerOnLoad: 1
@@ -230,4 +229,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100004}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
