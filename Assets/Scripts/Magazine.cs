@@ -52,6 +52,10 @@ public class Magazine : Pickupable
 					rightHand.carriedObject = null;
 					rightHand.carrying = false;
 				}
+
+				if(ScreenText.warning == ScreenText.Warning.LoadTheWeapon){
+					ScreenText.warning = ScreenText.Warning.LongSafetyMessage;
+				}
 			}
 		}
 	}

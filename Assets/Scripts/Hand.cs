@@ -117,6 +117,10 @@ public class Hand : MonoBehaviour
 							G.gunSlide.SetBack ();
 							cooldown = 50;
 							print ("BackGood GOOD");
+
+							if ( ScreenText.warning == ScreenText.Warning.PullTheSlide ) {
+								ScreenText.warning = ScreenText.Warning.FireMessage;
+							}
 						}
 					}
 				}

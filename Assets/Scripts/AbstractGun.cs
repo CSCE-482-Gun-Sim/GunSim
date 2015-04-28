@@ -118,7 +118,7 @@ public abstract class AbstractGun : Pickupable
 						if ( ScreenText.warning == ScreenText.Warning.ShortSafetyMessage ) {
 								ScreenText.warning = ScreenText.Warning.None;
 						} else if ( ScreenText.warning == ScreenText.Warning.LongSafetyMessage ) {
-										ScreenText.warning = ScreenText.Warning.FireMessage;
+										ScreenText.warning = ScreenText.Warning.PullTheSlide;
 								}
 				}
 		}

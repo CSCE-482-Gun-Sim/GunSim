@@ -14,7 +14,8 @@ public class ScreenText : MonoBehaviour
 				LoadTheWeapon,
 				LoadAMagazine,
 				EmptyClip,
-				StandAtRange
+				StandAtRange,
+				PullTheSlide
 	}
 		;
 		public static Warning warning;
@@ -62,10 +63,12 @@ public class ScreenText : MonoBehaviour
 																						warningString = "First load the gun with a magazine by picking one up and holding the magazine under the gun.";
 																				} else if ( warning == Warning.EmptyClip ) {
 																								warningString = "Your magazine is empty. Press the right primary button to drop the magazine, then pick up another one and load it in the pistol.";
-																						} 
-
-				var centeredStyle = GUI.skin.GetStyle ("Label");
-				centeredStyle.alignment = TextAnchor.UpperCenter;
+																					} else if ( warning == Warning.PullTheSlide ) {
+																						warningString = "To pull the slide, place your hand above the pistol and press the Primary button.";
+																					} 
+		
+		var centeredStyle = GUI.skin.GetStyle ("Label");
+		centeredStyle.alignment = TextAnchor.UpperCenter;
 				centeredStyle.fontSize = 30;
 				GUI.Label (new Rect (Screen.width / 2 - 250, Screen.height - 200, 500, 500), warningString, centeredStyle);
 
