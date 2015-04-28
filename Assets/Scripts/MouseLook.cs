@@ -54,7 +54,7 @@ public class MouseLook : MonoBehaviour {
 			
 			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 		}
-		Debug.Log ("Mouse X " + Input.GetAxis("Mouse X"));
+		//Debug.Log ("Mouse X " + Input.GetAxis("Mouse X"));
 		 
 		Vector3 directionVector = new Vector3();
 		SixenseInput.Controller hydraRightController = SixenseInput.GetController (SixenseHands.RIGHT);
@@ -63,7 +63,7 @@ public class MouseLook : MonoBehaviour {
 		if (hydraRightController != null) { 
 			directionVector= new Vector3(hydraRightController.JoystickX, 0, hydraRightController.JoystickY); 
 		}
-		Debug.Log (directionVector);
+		//Debug.Log (directionVector);
 		if (directionVector != Vector3.zero) {
 			float rotationX = transform.localEulerAngles.y + hydraRightController.JoystickX * sensitivityX;
 			rotationHydraY = transform.localEulerAngles.z + hydraRightController.JoystickY * hydraSensitivityY;

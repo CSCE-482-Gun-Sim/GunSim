@@ -143,17 +143,24 @@ public class Hand : MonoBehaviour
 	}
 
 	private bool showTextForLeftHandMagazine(string name, Collider col){
-		//AbstractGun pistol = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
+		AbstractGun pistol = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
 		//Debug.Log ((!rightHand && name == "MagEntryPoint") + " " + (carriedObject != null) + " " + (carriedObject.GetType () == typeof(Magazine)) + " " + (pistol.loadedMagazine == null)); 
-		//if (!rightHand && name == "MagEntryPoint" && carriedObject != null && 
-		    //carriedObject.GetType () == typeof(Magazine) && pistol.loadedMagazine == null) {
-			//return true;
-		//}
+		if (!rightHand && name == "MagEntryPoint" && carriedObject != null && 
+		    carriedObject.GetType () == typeof(Magazine) && pistol.loadedMagazine == null) {
+			return true;
+		}
 
 		return false;
 	}
 
 	private bool showTextForRightHandMagazine(string name, Collider col){
+		AbstractGun pistol = GameObject.FindGameObjectWithTag ("Pistol").GetComponent<AbstractGun> ();
+		//Debug.Log ((rightHand && name == "MagEntryPoint") + " " + (carriedObject != null) + " " + (carriedObject.GetType () == typeof(Magazine)) + " " + (pistol.loadedMagazine == null)); 
+		if (rightHand && name == "MagEntryPoint" && carriedObject != null && 
+		    carriedObject.GetType () == typeof(Magazine) && pistol.loadedMagazine == null) {
+			return true;
+		}
+		
 		return false;
 	}
 }
