@@ -97,6 +97,10 @@ public class Hand : MonoBehaviour
 						G.Eject ();
 						cooldown = 50;
 						print ("EJECT GOOD");
+
+						if(ScreenText.warning == ScreenText.Warning.EmptyClip){
+							ScreenText.warning = ScreenText.Warning.None;
+						}
 					}
 				}
 				if (name == "SideOfGunPoint") {

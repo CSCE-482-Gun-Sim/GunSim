@@ -4,6 +4,7 @@ using System.Collections;
 public class StandAtRange : MonoBehaviour
 {
 		bool triggered = false;
+		ScreenText.Warning lastWarning;
 	
 		// Use this for initialization
 		void Start()
@@ -19,17 +20,21 @@ public class StandAtRange : MonoBehaviour
 	
 		void OnTriggerEnter(Collider col)
 		{
-				if ( !triggered && ScreenText.dontShowFirstMessage ) {
-						triggered = true;
-						ScreenText.warning = ScreenText.Warning.None;
-				}
+				//if ( !triggered && ScreenText.dontShowFirstMessage ) {
+				//		triggered = true;
+				//		if(lastWarning == null)
+				//			ScreenText.warning = ScreenText.Warning.None;
+				//		else
+				//			ScreenText.warning = lastWarning;
+				//}
 		}
 
 		void OnTriggerExit(Collider col)
 		{
-				if ( ScreenText.dontShowFirstMessage ) {
-						triggered = false;
-						ScreenText.warning = ScreenText.Warning.StandAtRange;
-				}
+				//if ( ScreenText.dontShowFirstMessage ) {
+				//		triggered = false;
+				//		lastWarning = ScreenText.warning;
+				//		ScreenText.warning = ScreenText.Warning.StandAtRange;
+				//}
 		}
 }
